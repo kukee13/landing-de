@@ -7,6 +7,7 @@ import { ArrowLeft, ExternalLink, Clock, FileText, Lightbulb } from 'lucide-reac
 import { Checkbox } from '@/components/ui/checkbox'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
+import { track } from '@vercel/analytics'
 import { loadTimeline, toggleTask, saveDocChecked, loadDocChecked } from '@/lib/storage'
 import tasksData from '@/data/tasks/common.json'
 import type { Task, TimelineState } from '@/lib/types'
@@ -234,26 +235,35 @@ export default function TaskDetail() {
         {/* Recommended providers */}
         {task.providers && task.providers.length > 0 && (
           <section className="mt-8">
-            <h2 className="mb-3 text-sm font-semibold uppercase tracking-widest text-gray-400">
+            <h2 className="mb-1 text-sm font-semibold uppercase tracking-widest text-gray-400">
               Recommended providers
             </h2>
+            <p className="mb-3 text-xs text-gray-400">
+              Links may earn Landing.de a referral fee at no cost to you.
+            </p>
             <ul className="space-y-2">
-              {task.providers.map((provider) => (
-                <li key={provider.name}>
-                  <a
-                    href={provider.affiliateUrl ?? provider.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start justify-between gap-3 rounded-xl border p-3 hover:bg-gray-50 transition-colors"
-                  >
-                    <div className="min-w-0">
-                      <p className="text-sm font-medium text-gray-900">{provider.name}</p>
-                      <p className="mt-0.5 text-xs text-gray-500">{provider.note}</p>
-                    </div>
-                    <ExternalLink className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gray-400" />
-                  </a>
-                </li>
-              ))}
+              {task.providers.map((provider) => {
+                const href = provider.affiliateUrl
+                  ? `/api/track?id=${encodeURIComponent(provider.name)}&type=affiliate&dest=${encodeURIComponent(provider.affiliateUrl)}`
+                  : provider.url
+                return (
+                  <li key={provider.name}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => track('provider_click', { provider: provider.name, task: task.id })}
+                      className="flex items-start justify-between gap-3 rounded-xl border p-3 hover:bg-gray-50 transition-colors"
+                    >
+                      <div className="min-w-0">
+                        <p className="text-sm font-medium text-gray-900">{provider.name}</p>
+                        <p className="mt-0.5 text-xs text-gray-500">{provider.note}</p>
+                      </div>
+                      <ExternalLink className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gray-400" />
+                    </a>
+                  </li>
+                )
+              })}
             </ul>
           </section>
         )}

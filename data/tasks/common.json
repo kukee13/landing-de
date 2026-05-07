@@ -40,9 +40,9 @@
       "You can switch GKV providers after 12 months — your first choice is not permanent"
     ],
     "providers": [
-      { "name": "TK — Techniker Krankenkasse", "url": "https://www.tk.de/en", "note": "Most popular GKV for internationals, English support, fast application" },
-      { "name": "BARMER", "url": "https://www.barmer.de/en", "note": "Nationwide GKV, solid English service, good app" },
-      { "name": "AOK", "url": "https://www.aok.de/pk/", "note": "Largest GKV by members, regional offices in every city" }
+      { "name": "TK — Techniker Krankenkasse", "url": "https://www.tk.de/en", "affiliateUrl": "https://www.tk.de/en", "note": "Most popular GKV for internationals, English support, fast application" },
+      { "name": "BARMER", "url": "https://www.barmer.de/en", "affiliateUrl": "https://www.barmer.de/en", "note": "Nationwide GKV, solid English service, good app" },
+      { "name": "AOK", "url": "https://www.aok.de/pk/", "affiliateUrl": "https://www.aok.de/pk/", "note": "Largest GKV by members, regional offices in every city" }
     ]
   },
   {
@@ -75,9 +75,9 @@
       "Keep your foreign SIM active temporarily for 2FA while you transition accounts to your German number"
     ],
     "providers": [
-      { "name": "Aldi Talk", "url": "https://www.alditalk.de", "note": "Cheapest prepaid, Telekom network, buy at any Aldi store" },
-      { "name": "Lidl Connect", "url": "https://www.lidl-connect.de", "note": "Budget prepaid, Vodafone network, good urban coverage" },
-      { "name": "Blau.de", "url": "https://www.blau.de", "note": "Good postpaid tariffs once you have a registered address" }
+      { "name": "Aldi Talk", "url": "https://www.alditalk.de", "affiliateUrl": "https://www.alditalk.de", "note": "Cheapest prepaid, Telekom network, buy at any Aldi store" },
+      { "name": "Lidl Connect", "url": "https://www.lidl-connect.de", "affiliateUrl": "https://www.lidl-connect.de", "note": "Budget prepaid, Vodafone network, good urban coverage" },
+      { "name": "Blau.de", "url": "https://www.blau.de", "affiliateUrl": "https://www.blau.de", "note": "Good postpaid tariffs once you have a registered address" }
     ]
   },
   {
@@ -294,9 +294,9 @@
       "Order your card immediately after applying — landlords and employers will need your IBAN quickly"
     ],
     "providers": [
-      { "name": "N26", "url": "https://n26.com/en-de", "note": "Most popular for newcomers, English app, free international transfers" },
-      { "name": "DKB (Deutsche Kreditbank)", "url": "https://www.dkb.de", "note": "No monthly fee, free VISA debit card, great for students" },
-      { "name": "Commerzbank", "url": "https://www.commerzbank.de", "note": "Traditional bank, English support, branch access nationwide" }
+      { "name": "N26", "url": "https://n26.com/en-de", "affiliateUrl": "https://n26.com/en-de", "note": "Most popular for newcomers, English app, free international transfers" },
+      { "name": "DKB (Deutsche Kreditbank)", "url": "https://www.dkb.de", "affiliateUrl": "https://www.dkb.de", "note": "No monthly fee, free VISA debit card, great for students" },
+      { "name": "Commerzbank", "url": "https://www.commerzbank.de", "affiliateUrl": "https://www.commerzbank.de", "note": "Traditional bank, English support, branch access nationwide" }
     ]
   },
   {
@@ -330,9 +330,9 @@
       "Most policies allow monthly cancellation — easy to switch if you find a better deal later"
     ],
     "providers": [
-      { "name": "Getsafe", "url": "https://www.hellogetsafe.com/en-de", "note": "English-first, expat-friendly, fully app-based" },
-      { "name": "Feather Insurance", "url": "https://www.feather-insurance.com", "note": "English, designed for internationals, monthly cancellable" },
-      { "name": "Friday (via Check24)", "url": "https://www.friday.de", "note": "Competitive rates, strong coverage options" }
+      { "name": "Getsafe", "url": "https://www.hellogetsafe.com/en-de", "affiliateUrl": "https://www.hellogetsafe.com/en-de", "note": "English-first, expat-friendly, fully app-based" },
+      { "name": "Feather Insurance", "url": "https://www.feather-insurance.com", "affiliateUrl": "https://www.feather-insurance.com", "note": "English, designed for internationals, monthly cancellable" },
+      { "name": "Friday (via Check24)", "url": "https://www.friday.de", "affiliateUrl": "https://www.friday.de", "note": "Competitive rates, strong coverage options" }
     ]
   },
   {

@@ -11,6 +11,8 @@ import { Input } from '@/components/ui/input'
 import { parseProfileFromParams, loadTimeline, saveTimeline, toggleTask, saveNote, loadNote } from '@/lib/storage'
 import { getTasksForUser } from '@/lib/taskFilter'
 import tasksData from '@/data/tasks/common.json'
+import { SPONSORS } from '@/data/sponsors'
+import { SponsoredCard } from '@/components/SponsoredCard'
 import type { Task, UserProfile, TimelineState, TaskCategory } from '@/lib/types'
 
 const allTasks = tasksData as unknown as Task[]
@@ -256,63 +258,73 @@ export default function TimelineView() {
             </button>
           </div>
         ) : (
-          tasks.map((task) => {
+          tasks.map((task, index) => {
             const isCompleted = timelineState.completedTaskIds.includes(task.id)
             const chip = task.deadlineDaysFromArrival !== null
               ? deadlineChip(profile.arrivalDate, task.deadlineDaysFromArrival)
               : null
 
+            // Find any sponsor to show after this task
+            const sponsorHere = SPONSORS.find(
+              (s) =>
+                s.showAfterTaskIndex === index &&
+                (!s.targetVisaTypes || s.targetVisaTypes.includes(profile.visaType)) &&
+                (!s.targetCities || s.targetCities.includes(profile.city))
+            )
+
             return (
-              <div
-                key={task.id}
-                className={['rounded-xl border bg-white p-4 transition-opacity duration-200', isCompleted ? 'opacity-50' : ''].join(' ')}
-              >
-                <div className="flex gap-3">
-                  <Checkbox
-                    checked={isCompleted}
-                    onCheckedChange={() => handleToggle(task.id)}
-                    className="mt-0.5 shrink-0"
-                  />
-                  <div className="min-w-0 flex-1">
-                    <p className={['font-medium leading-snug text-gray-900', isCompleted ? 'line-through' : ''].join(' ')}>
-                      {task.title}
-                    </p>
+              <div key={task.id}>
+                <div
+                  className={['rounded-xl border bg-white p-4 transition-opacity duration-200', isCompleted ? 'opacity-50' : ''].join(' ')}
+                >
+                  <div className="flex gap-3">
+                    <Checkbox
+                      checked={isCompleted}
+                      onCheckedChange={() => handleToggle(task.id)}
+                      className="mt-0.5 shrink-0"
+                    />
+                    <div className="min-w-0 flex-1">
+                      <p className={['font-medium leading-snug text-gray-900', isCompleted ? 'line-through' : ''].join(' ')}>
+                        {task.title}
+                      </p>
 
-                    <div className="mt-2 flex flex-wrap items-center gap-1.5">
-                      <span className={['rounded-full px-2 py-0.5 text-xs font-medium capitalize', PRIORITY_STYLES[task.priority]].join(' ')}>
-                        {task.priority}
-                      </span>
-                      <Badge variant="outline" className="text-xs capitalize">{task.category}</Badge>
-                      {chip ? (
-                        <span className={['text-xs', chip.className].join(' ')}>{chip.label}</span>
-                      ) : (
-                        <span className="text-xs text-gray-400">Flexible timeline</span>
-                      )}
-                      {task.costEstimate && (
-                        <span className="text-xs text-gray-400">{task.costEstimate}</span>
-                      )}
+                      <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                        <span className={['rounded-full px-2 py-0.5 text-xs font-medium capitalize', PRIORITY_STYLES[task.priority]].join(' ')}>
+                          {task.priority}
+                        </span>
+                        <Badge variant="outline" className="text-xs capitalize">{task.category}</Badge>
+                        {chip ? (
+                          <span className={['text-xs', chip.className].join(' ')}>{chip.label}</span>
+                        ) : (
+                          <span className="text-xs text-gray-400">Flexible timeline</span>
+                        )}
+                        {task.costEstimate && (
+                          <span className="text-xs text-gray-400">{task.costEstimate}</span>
+                        )}
+                      </div>
+
+                      <p className="mt-2 line-clamp-2 text-sm text-gray-600">{task.description}</p>
+
+                      <div className="mt-2 flex items-center gap-3">
+                        <Link
+                          href={`/tasks/${task.id}?ref=${id}&city=${profile.city}&visa=${profile.visaType}&arrival=${profile.arrivalDate}&country=${encodeURIComponent(profile.countryOfOrigin)}`}
+                          className="text-sm text-black underline underline-offset-2 hover:no-underline"
+                        >
+                          View steps →
+                        </Link>
+                        {task.appointmentUrl && (
+                          <a href={task.appointmentUrl} target="_blank" rel="noopener noreferrer"
+                            className="text-sm text-blue-600 underline underline-offset-2 hover:no-underline">
+                            Book appointment ↗
+                          </a>
+                        )}
+                      </div>
+
+                      <TaskNoteField timelineId={id} taskId={task.id} />
                     </div>
-
-                    <p className="mt-2 line-clamp-2 text-sm text-gray-600">{task.description}</p>
-
-                    <div className="mt-2 flex items-center gap-3">
-                      <Link
-                        href={`/tasks/${task.id}?ref=${id}&city=${profile.city}&visa=${profile.visaType}&arrival=${profile.arrivalDate}&country=${encodeURIComponent(profile.countryOfOrigin)}`}
-                        className="text-sm text-black underline underline-offset-2 hover:no-underline"
-                      >
-                        View steps →
-                      </Link>
-                      {task.appointmentUrl && (
-                        <a href={task.appointmentUrl} target="_blank" rel="noopener noreferrer"
-                          className="text-sm text-blue-600 underline underline-offset-2 hover:no-underline">
-                          Book appointment ↗
-                        </a>
-                      )}
-                    </div>
-
-                    <TaskNoteField timelineId={id} taskId={task.id} />
                   </div>
                 </div>
+                {sponsorHere && <SponsoredCard sponsor={sponsorHere} />}
               </div>
             )
           })

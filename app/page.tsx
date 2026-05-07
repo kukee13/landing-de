@@ -125,6 +125,7 @@ export default function HomePage() {
         <div className="mt-2 flex justify-center gap-4">
           <Link href="/impressum" className="underline hover:text-gray-600">Impressum</Link>
           <Link href="/datenschutz" className="underline hover:text-gray-600">Datenschutz</Link>
+          <Link href="/advertise" className="underline hover:text-gray-600">Advertise</Link>
         </div>
       </footer>
     </div>
