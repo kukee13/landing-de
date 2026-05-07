@@ -3,11 +3,11 @@
 import { useEffect, useState } from 'react'
 import { useParams, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, ExternalLink } from 'lucide-react'
+import { ArrowLeft, ExternalLink, Clock, FileText, Lightbulb } from 'lucide-react'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
-import { loadTimeline, toggleTask } from '@/lib/storage'
+import { loadTimeline, toggleTask, saveDocChecked, loadDocChecked } from '@/lib/storage'
 import tasksData from '@/data/tasks/common.json'
 import type { Task, TimelineState } from '@/lib/types'
 
@@ -34,7 +34,6 @@ export default function TaskDetail() {
   const ref = searchParams.get('ref')
   const arrival = searchParams.get('arrival')
 
-  // Reconstruct the back-to-timeline URL from the params passed by TimelineView
   const backUrl = ref
     ? `/timeline/${ref}?city=${searchParams.get('city')}&visa=${searchParams.get('visa')}&arrival=${arrival}&country=${searchParams.get('country')}`
     : '/onboarding'
@@ -42,17 +41,28 @@ export default function TaskDetail() {
   const task = allTasks.find((t) => t.id === taskId) ?? null
 
   const [timelineState, setTimelineState] = useState<TimelineState | null>(null)
+  const [checkedDocs, setCheckedDocs] = useState<string[]>([])
 
   useEffect(() => {
     if (!ref) return
     const state = loadTimeline(ref)
     if (state) setTimelineState(state)
-  }, [ref])
+    setCheckedDocs(loadDocChecked(ref, taskId))
+  }, [ref, taskId])
 
   function handleToggle() {
     if (!ref || !task) return
     const updated = toggleTask(ref, task.id)
     if (updated) setTimelineState(updated)
+  }
+
+  function handleDocToggle(doc: string) {
+    if (!ref || !task) return
+    setCheckedDocs((prev) => {
+      const next = prev.includes(doc) ? prev.filter((d) => d !== doc) : [...prev, doc]
+      saveDocChecked(ref, task.id, next)
+      return next
+    })
   }
 
   if (!task) {
@@ -107,6 +117,17 @@ export default function TaskDetail() {
               Flexible timeline
             </Badge>
           )}
+          {task.costEstimate && (
+            <Badge variant="outline" className="text-gray-500">
+              {task.costEstimate}
+            </Badge>
+          )}
+          {task.timeEstimate && (
+            <span className="inline-flex items-center gap-1 rounded-full border border-gray-200 px-2.5 py-1 text-xs text-gray-500">
+              <Clock className="h-3 w-3" />
+              {task.timeEstimate}
+            </span>
+          )}
         </div>
 
         {/* Title */}
@@ -116,6 +137,41 @@ export default function TaskDetail() {
 
         {/* Description */}
         <p className="text-gray-700 leading-relaxed">{task.description}</p>
+
+        {/* Documents checklist */}
+        {task.documents && task.documents.length > 0 && (
+          <section className="mt-8">
+            <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-gray-400">
+              <FileText className="h-3.5 w-3.5" /> Documents to prepare
+            </h2>
+            <ul className="space-y-2.5">
+              {task.documents.map((doc) => {
+                const checked = checkedDocs.includes(doc)
+                return (
+                  <li key={doc} className="flex items-start gap-3">
+                    <Checkbox
+                      checked={checked}
+                      onCheckedChange={() => handleDocToggle(doc)}
+                      className="mt-0.5 shrink-0"
+                      disabled={!ref}
+                    />
+                    <span
+                      className={[
+                        'text-sm text-gray-700 leading-snug',
+                        checked ? 'line-through text-gray-400' : '',
+                      ].join(' ')}
+                    >
+                      {doc}
+                    </span>
+                  </li>
+                )
+              })}
+            </ul>
+            {!ref && (
+              <p className="mt-2 text-xs text-gray-400">Open from your checklist to track documents.</p>
+            )}
+          </section>
+        )}
 
         {/* Steps */}
         <section className="mt-8">
@@ -158,7 +214,63 @@ export default function TaskDetail() {
           </section>
         )}
 
+        {/* Community tips */}
+        {task.communityTips && task.communityTips.length > 0 && (
+          <section className="mt-8 rounded-xl border border-amber-100 bg-amber-50 p-4">
+            <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold text-amber-800">
+              <Lightbulb className="h-4 w-4" /> Community tips
+            </h2>
+            <ul className="space-y-2">
+              {task.communityTips.map((tip, i) => (
+                <li key={i} className="flex gap-2 text-sm text-amber-900">
+                  <span className="shrink-0 text-amber-500">·</span>
+                  {tip}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {/* Recommended providers */}
+        {task.providers && task.providers.length > 0 && (
+          <section className="mt-8">
+            <h2 className="mb-3 text-sm font-semibold uppercase tracking-widest text-gray-400">
+              Recommended providers
+            </h2>
+            <ul className="space-y-2">
+              {task.providers.map((provider) => (
+                <li key={provider.name}>
+                  <a
+                    href={provider.affiliateUrl ?? provider.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start justify-between gap-3 rounded-xl border p-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <div className="min-w-0">
+                      <p className="text-sm font-medium text-gray-900">{provider.name}</p>
+                      <p className="mt-0.5 text-xs text-gray-500">{provider.note}</p>
+                    </div>
+                    <ExternalLink className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gray-400" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         <Separator className="my-8" />
+
+        {/* Appointment booking */}
+        {task.appointmentUrl && (
+          <a
+            href={task.appointmentUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mb-4 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+          >
+            Book appointment ↗
+          </a>
+        )}
 
         {/* Completion toggle */}
         {ref ? (

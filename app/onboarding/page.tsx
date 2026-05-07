@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -75,8 +75,12 @@ function SelectionCard({
 
 export default function OnboardingPage() {
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const cityParam = searchParams.get('city') as City | null
   const [step, setStep] = useState(1)
-  const [profile, setProfile] = useState<Partial<UserProfile>>({})
+  const [profile, setProfile] = useState<Partial<UserProfile>>(
+    cityParam && CITIES.some((c) => c.value === cityParam) ? { city: cityParam } : {}
+  )
 
   const canAdvance =
     (step === 1 && Boolean(profile.city)) ||

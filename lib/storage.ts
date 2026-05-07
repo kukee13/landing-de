@@ -59,6 +59,37 @@ export function toggleTask(timelineId: string, taskId: string): TimelineState | 
   return updated
 }
 
+// ── Per-task document checklist ──────────────────────────────────────────────
+
+export function saveDocChecked(timelineId: string, taskId: string, checked: string[]): void {
+  if (typeof window === 'undefined') return
+  const key = `${STORAGE_PREFIX}docs_${timelineId}_${taskId}`
+  checked.length ? localStorage.setItem(key, JSON.stringify(checked)) : localStorage.removeItem(key)
+}
+
+export function loadDocChecked(timelineId: string, taskId: string): string[] {
+  if (typeof window === 'undefined') return []
+  try {
+    const raw = localStorage.getItem(`${STORAGE_PREFIX}docs_${timelineId}_${taskId}`)
+    return raw ? (JSON.parse(raw) as string[]) : []
+  } catch {
+    return []
+  }
+}
+
+// ── Per-task notes ───────────────────────────────────────────────────────────
+
+export function saveNote(timelineId: string, taskId: string, note: string): void {
+  if (typeof window === 'undefined') return
+  const key = `${STORAGE_PREFIX}note_${timelineId}_${taskId}`
+  note.trim() ? localStorage.setItem(key, note) : localStorage.removeItem(key)
+}
+
+export function loadNote(timelineId: string, taskId: string): string {
+  if (typeof window === 'undefined') return ''
+  return localStorage.getItem(`${STORAGE_PREFIX}note_${timelineId}_${taskId}`) ?? ''
+}
+
 // ── Share URL ─────────────────────────────────────────────────────────────────
 
 // Returns a relative path; callers prepend window.location.origin for clipboard copy.

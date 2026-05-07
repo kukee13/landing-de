@@ -29,6 +29,14 @@ export type TaskPriority = 'critical' | 'high' | 'medium' | 'low'
 export interface OfficialLink {
   label: string
   url: string
+  verify?: boolean
+}
+
+export interface Provider {
+  name: string
+  url: string
+  note: string
+  affiliateUrl?: string
 }
 
 export interface Task {
@@ -42,6 +50,12 @@ export interface Task {
   officialLinks: OfficialLink[]
   applicableVisaTypes: VisaType[]
   applicableCities: City[]
+  costEstimate?: string
+  timeEstimate?: string
+  documents?: string[]
+  communityTips?: string[]
+  appointmentUrl?: string
+  providers?: Provider[]
 }
 
 export interface UserProfile {

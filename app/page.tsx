@@ -115,6 +115,17 @@ export default function HomePage() {
         <p className="mt-1">
           Task information is for guidance only. Always verify with official sources.
         </p>
+        <div className="mt-3 flex justify-center gap-4">
+          <Link href="/city/berlin" className="underline hover:text-gray-600">Berlin</Link>
+          <Link href="/city/munich" className="underline hover:text-gray-600">Munich</Link>
+          <Link href="/city/frankfurt" className="underline hover:text-gray-600">Frankfurt</Link>
+          <Link href="/city/hamburg" className="underline hover:text-gray-600">Hamburg</Link>
+          <Link href="/city/cologne" className="underline hover:text-gray-600">Cologne</Link>
+        </div>
+        <div className="mt-2 flex justify-center gap-4">
+          <Link href="/impressum" className="underline hover:text-gray-600">Impressum</Link>
+          <Link href="/datenschutz" className="underline hover:text-gray-600">Datenschutz</Link>
+        </div>
       </footer>
     </div>
   )
