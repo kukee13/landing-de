@@ -1,0 +1,558 @@
+[
+  {
+    "id": "health-insurance",
+    "title": "Get Health Insurance (Krankenversicherung)",
+    "category": "insurance",
+    "priority": "critical",
+    "deadlineDaysFromArrival": 7,
+    "description": "Health insurance is mandatory in Germany from day one of residence. Most new arrivals choose statutory (gesetzlich / GKV) insurance — TK, AOK, BARMER, or DAK. Private insurance (PKV) is only available if your gross salary exceeds the annual threshold (~€69,300 in 2025) or you are self-employed. Students under 30 get subsidised GKV rates of around €120/month.",
+    "steps": [
+      "Determine whether you qualify for statutory (GKV) or private (PKV) insurance based on your employment status and income",
+      "Students: contact a major GKV provider (TK, AOK, BARMER) directly — they have English-speaking support lines",
+      "Employees: inform HR which GKV insurer you choose — your employer registers you and deducts contributions automatically",
+      "Apply online with your passport; once you have your Meldebescheinigung, send a copy to your insurer",
+      "Receive your Versicherungskarte (health card) within 2–3 weeks — request a provisional membership letter in the meantime for doctor visits"
+    ],
+    "officialLinks": [
+      {
+        "label": "GKV-Spitzenverband — Statutory health insurance overview",
+        "url": "https://www.gkv-spitzenverband.de/english/statutory_health_insurance/statutory_health_insurance.jsp",
+        "verify": true
+      },
+      {
+        "label": "Bundesgesundheitsministerium — Krankenversicherung",
+        "url": "https://www.bundesgesundheitsministerium.de/themen/krankenversicherung.html",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "sim-card",
+    "title": "Get a German SIM Card",
+    "category": "social",
+    "priority": "high",
+    "deadlineDaysFromArrival": 3,
+    "description": "A German mobile number is required for two-factor authentication on banking apps, online portals, and most government registrations. Prepaid SIMs are available immediately at supermarkets and electronics stores with just a passport — no address needed. A postpaid contract (cheaper long-term) requires a registered address.",
+    "steps": [
+      "Buy a prepaid SIM immediately: Aldi Talk, Lidl Connect, and REWE Mobil are cheapest (from €10, uses Telekom or O2 network)",
+      "Activate the SIM online using your passport — mandatory since 2017 under the Telekommunikationsgesetz",
+      "Once you have your Meldebescheinigung, compare postpaid tariffs on Check24 or Verivox for a better long-term deal",
+      "Switch your WhatsApp, banking apps, and email 2FA to your German number before cancelling any foreign SIM"
+    ],
+    "officialLinks": [
+      {
+        "label": "Bundesnetzagentur — Telecommunications consumer info",
+        "url": "https://www.bundesnetzagentur.de/DE/Vportal/TK/Verbraucher/verbraucher-node.html",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "biometric-photos",
+    "title": "Get Biometric Passport Photos",
+    "category": "registration",
+    "priority": "high",
+    "deadlineDaysFromArrival": 7,
+    "description": "Biometric photos (35×45 mm, specific background and lighting requirements) are needed for your residence permit application at the Ausländerbehörde, and sometimes for other registrations. German automated photo booths at train stations (Deutsche Bahn) and post offices produce compliant photos for around €5–8. Chemist studios like dm Fotowelt also offer this service.",
+    "steps": [
+      "Find a photo booth at your nearest train station, post office, or dm/Rossmann drugstore",
+      "Select the 'Biometrisches Passfoto' option — the machine will guide you on posture and expression",
+      "Get at least 4 copies printed — you will need them for the Ausländerbehörde and potentially for other documents",
+      "Check the Bundesdruckerei photo guidelines if you are unsure whether a photo meets requirements"
+    ],
+    "officialLinks": [
+      {
+        "label": "Bundesdruckerei — Biometric photo requirements",
+        "url": "https://www.bundesdruckerei.de/de/3050-fotoqualitaet",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "anmeldung",
+    "title": "Anmeldung (City Registration)",
+    "category": "registration",
+    "priority": "critical",
+    "deadlineDaysFromArrival": 14,
+    "description": "Registering your address at the local Bürgeramt is legally required within 14 days of moving in. The Meldebescheinigung (registration certificate) you receive is the master document — you need it to open a bank account, receive your tax ID, apply for your residence permit, and complete almost every other administrative step.",
+    "steps": [
+      "Find your local Bürgeramt on your city's official website",
+      "Book an appointment online — walk-in slots are rare and often unavailable; book as early as possible",
+      "Collect your documents: passport, completed Anmeldeformular, and the Wohnungsgeberbestätigung (landlord confirmation form) signed by your landlord",
+      "Attend your appointment and receive your Meldebescheinigung on the spot",
+      "Store several copies of the Meldebescheinigung — you will need it repeatedly in the coming weeks"
+    ],
+    "officialLinks": [
+      {
+        "label": "Berlin — Anmeldung einer Wohnung (service.berlin.de)",
+        "url": "https://service.berlin.de/dienstleistung/120686/",
+        "verify": true
+      },
+      {
+        "label": "BAMF — Arriving in Germany overview",
+        "url": "https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/AnkunftDeutschland/ankunftdeutschland-node.html",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "university-enrollment",
+    "title": "Complete University Enrolment & Get Student Card",
+    "category": "registration",
+    "priority": "critical",
+    "deadlineDaysFromArrival": 14,
+    "description": "Full enrolment (Immatrikulation) is separate from your admission offer — you must submit documents, pay the semester fee (Semesterbeitrag), and collect your physical student card (Studierendenausweis). The student card is often also your public transport pass for the semester, gives you access to campus facilities, and proves student status for discounts and health insurance.",
+    "steps": [
+      "Log in to your university's student portal and complete the enrolment checklist",
+      "Pay the semester fee (typically €100–400 depending on the university and state) — this often includes a public transport semester ticket",
+      "Upload or submit required documents: passport, visa, proof of health insurance, university admission letter",
+      "Collect your physical Studierendenausweis from the student office (Studierendensekretariat) or activate the digital version",
+      "Register with your faculty/department and enrol in courses for the semester"
+    ],
+    "officialLinks": [
+      {
+        "label": "DAAD — Studying in Germany guide",
+        "url": "https://www.daad.de/de/studieren-und-forschen-in-deutschland/studium-planen/studium-in-deutschland/",
+        "verify": true
+      },
+      {
+        "label": "Anabin — Degree and qualification database",
+        "url": "https://anabin.kmk.org/",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "electricity-gas",
+    "title": "Register Your Electricity & Gas Account",
+    "category": "housing",
+    "priority": "medium",
+    "deadlineDaysFromArrival": 14,
+    "description": "In Germany, the person living in the flat is responsible for the electricity and gas contract, unless your landlord includes utilities in the rent (check your lease). When you move in, note the meter readings (Zählerstand) and report them to the basic supplier (Grundversorger) for your area. You can then switch to a cheaper provider using a comparison portal.",
+    "steps": [
+      "Check your rental contract — if utilities (Nebenkosten) are included, you do not need a separate contract",
+      "Note the electricity (Strom) and gas (Gas) meter readings on your move-in day and photograph them",
+      "Contact the local Grundversorger (default supplier) to register as the new tenant — they are legally required to supply you",
+      "Compare tariffs on Check24, Verivox, or Stromauskunft.de and switch to a cheaper provider if desired",
+      "Set up a SEPA direct debit (Lastschrift) with your German bank account for monthly advance payments"
+    ],
+    "officialLinks": [
+      {
+        "label": "Bundesnetzagentur — Energy consumer rights",
+        "url": "https://www.bundesnetzagentur.de/DE/Vportal/Energie/Verbraucher/verbraucher-node.html",
+        "verify": true
+      },
+      {
+        "label": "Verbraucherzentrale — Switching energy provider",
+        "url": "https://www.verbraucherzentrale.de/wissen/energie/preise-tarife-anbieterwechsel/anbieterwechsel-strom-und-gas-6908",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "deutschlandticket",
+    "title": "Get the Deutschlandticket (€58/month)",
+    "category": "transport",
+    "priority": "medium",
+    "deadlineDaysFromArrival": 14,
+    "description": "The Deutschlandticket (formerly €49-Ticket) gives unlimited travel on all regional and local public transport across Germany for €58/month. It covers U-Bahn, S-Bahn, buses, trams, and regional trains (not ICE/IC). It requires a German bank account for the monthly direct debit. Students may have a subsidised version included in their semester fee — check before buying.",
+    "steps": [
+      "Students: check whether your semester fee already includes a public transport pass (Semesterticket) — if so, you do not need the Deutschlandticket",
+      "Purchase through your local transport authority app (BVG in Berlin, MVV in Munich, RMV in Frankfurt, HVV in Hamburg, KVB in Cologne) or directly through DB Navigator",
+      "A German IBAN is required for the monthly SEPA direct debit — set up your bank account first",
+      "The ticket auto-renews monthly; cancel by the 10th of the month to stop next month's charge",
+      "Download the app and save the ticket digitally — it is not available as a physical card"
+    ],
+    "officialLinks": [
+      {
+        "label": "Bundesregierung — Deutschlandticket information",
+        "url": "https://www.bundesregierung.de/breg-de/themen/klimaschutz/deutschlandticket-2134074",
+        "verify": true
+      },
+      {
+        "label": "DB Navigator — Buy Deutschlandticket",
+        "url": "https://www.bahn.de/angebot/regio/deutschland-ticket",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "bank-account",
+    "title": "Open a German Bank Account",
+    "category": "banking",
+    "priority": "high",
+    "deadlineDaysFromArrival": 30,
+    "description": "A German bank account (Girokonto) is essential for receiving salary, paying rent by SEPA transfer, and setting up direct debits. Most landlords and employers require a German IBAN. You will need your Meldebescheinigung and passport to open one. Online banks are faster for new arrivals as they do not require in-person visits.",
+    "steps": [
+      "Complete your Anmeldung first — most banks require a Meldebescheinigung",
+      "Choose between a traditional bank (Deutsche Bank, Sparkasse, Commerzbank) or a fully online bank (N26, DKB, Revolut DE) — online banks are often faster and English-friendly",
+      "Apply online or in-branch with your passport and Meldebescheinigung",
+      "Complete identity verification (online: VideoIdent via app; in-branch: in person with passport)",
+      "Wait 5–10 business days to receive your debit card and PIN by separate post"
+    ],
+    "officialLinks": [
+      {
+        "label": "BaFin — Consumer information on payment accounts",
+        "url": "https://www.bafin.de/EN/Verbraucher/BaFinVerbraucher/verbraucher_node.html",
+        "verify": true
+      },
+      {
+        "label": "Verbraucherzentrale — Girokonto für Neubürger",
+        "url": "https://www.verbraucherzentrale.de/wissen/geld-versicherungen/sparen-und-anlegen/girokonto-fuer-neubuergerinnen-und-neubuerger-6792",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "haftpflicht",
+    "title": "Get Personal Liability Insurance (Haftpflichtversicherung)",
+    "category": "insurance",
+    "priority": "high",
+    "deadlineDaysFromArrival": 30,
+    "description": "Personal liability insurance is not legally mandatory in Germany but is considered essential. It covers you if you accidentally damage someone else's property or injure someone — for example, breaking a landlord's window, causing a cycling accident, or a friend tripping over something in your flat. Policies typically cost €3–6 per month and can be cancelled monthly.",
+    "steps": [
+      "Compare policies on Check24.de or Verivox.de — filter for 'Privathaftpflichtversicherung'",
+      "Look for a policy with at least €10 million coverage (€10 Mio. Deckungssumme) — this is standard",
+      "Check whether your policy covers: key loss (Schlüsselverlust), rented property damage (Mietsachschäden), and bike accidents",
+      "Apply online — most providers accept a German bank account for SEPA direct debit",
+      "Keep your policy document (Versicherungsschein) digitally and share your insurer's emergency number with close contacts"
+    ],
+    "officialLinks": [
+      {
+        "label": "Verbraucherzentrale — Haftpflichtversicherung guide",
+        "url": "https://www.verbraucherzentrale.de/wissen/versicherungen/hausrat-haftpflicht-und-co/haftpflichtversicherung-das-muessen-sie-wissen-5125",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "internet-contract",
+    "title": "Set Up Home Internet (DSL / Cable)",
+    "category": "housing",
+    "priority": "medium",
+    "deadlineDaysFromArrival": 30,
+    "description": "Home broadband in Germany takes 2–4 weeks to activate after signing a contract, so order early. Most contracts run for 24 months with a 1-month notice period. In shared flats (WGs), check whether internet is already included in the rent before ordering a new line. The main providers are Telekom, Vodafone, O2, and 1&1.",
+    "steps": [
+      "Check your rental contract — internet may already be included in the Nebenkosten",
+      "In a WG: ask flatmates whether there is an existing contract you can split costs for",
+      "Compare offers on Check24.de using your postcode to see which providers service your building",
+      "Order online — you will need your registered address (Meldebescheinigung) and German IBAN",
+      "A technician appointment (Technikertermin) is usually required; book the earliest available slot as waiting times can be 2–6 weeks"
+    ],
+    "officialLinks": [
+      {
+        "label": "Bundesnetzagentur — Broadband consumer rights",
+        "url": "https://www.bundesnetzagentur.de/DE/Vportal/TK/Internet/start.html",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "rundfunkbeitrag",
+    "title": "Register for Broadcasting Fee (Rundfunkbeitrag)",
+    "category": "registration",
+    "priority": "medium",
+    "deadlineDaysFromArrival": 30,
+    "description": "Every household in Germany must pay the Rundfunkbeitrag (public broadcasting fee) of €18.36/month. It is per household, not per person — if you share a flat where someone is already paying, you are exempt. Students with BAföG or Wohngeld can apply for a full exemption. Register online to avoid retroactive charges.",
+    "steps": [
+      "Check if a flatmate in your household is already registered — if so, you do not need to register separately",
+      "If you are the sole or first resident, go to rundfunkbeitrag.de and click 'Anmelden'",
+      "Fill in your name and registered address (must match your Meldebescheinigung)",
+      "Choose a payment method — quarterly direct debit (SEPA) is the default",
+      "Students receiving BAföG: apply for exemption (Befreiung) on the same website with your BAföG notice"
+    ],
+    "officialLinks": [
+      {
+        "label": "Rundfunkbeitrag — Anmelden (official registration)",
+        "url": "https://www.rundfunkbeitrag.de/buergerinnen_und_buerger/formulare/anmelden/index_ger.html",
+        "verify": true
+      },
+      {
+        "label": "Rundfunkbeitrag — Befreiung (exemption for students / low income)",
+        "url": "https://www.rundfunkbeitrag.de/buergerinnen_und_buerger/formulare/befreiung_oder_ermaessigung/index_ger.html",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "hausarzt",
+    "title": "Register with a GP (Hausarzt)",
+    "category": "insurance",
+    "priority": "medium",
+    "deadlineDaysFromArrival": 60,
+    "description": "Having a registered GP (Hausarzt) means you can get same-day or next-day appointments rather than waiting weeks as a new patient. You do not need to formally register in advance — simply call a practice and ask to become a patient (Patient werden). Present your Versicherungskarte (health insurance card) at your first appointment.",
+    "steps": [
+      "Search for GPs accepting new patients on the KBV Arztsuche or your health insurer's app — filter by 'Hausarzt' and your postcode",
+      "Call practices directly and ask 'Nehmen Sie neue Patienten an?' (Are you accepting new patients?)",
+      "Book a first appointment (Erstgespräch) — bring your passport, Meldebescheinigung, and health insurance card",
+      "Tell the GP you are new to Germany so they can set up a full patient record",
+      "Ask for referrals (Überweisungen) to specialists from your GP — going directly to a specialist without referral often costs extra"
+    ],
+    "officialLinks": [
+      {
+        "label": "KBV — Doctor search (Arztsuche)",
+        "url": "https://www.kbv.de/html/arztsuche.php",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "hausrat",
+    "title": "Household Contents Insurance (Hausratversicherung)",
+    "category": "insurance",
+    "priority": "low",
+    "deadlineDaysFromArrival": 60,
+    "description": "Household contents insurance covers your personal belongings — furniture, electronics, clothing — against theft, fire, water damage, and storms. It is not legally required but strongly recommended, especially if you own expensive items. The premium is based on the size of your flat, typically €50–100/year for a 50 m² apartment.",
+    "steps": [
+      "Estimate the total replacement value of your belongings — this determines the coverage sum (Versicherungssumme)",
+      "Compare policies on Check24.de or Verivox.de — look for 'Hausratversicherung'",
+      "Check whether your policy covers: bicycle theft (Fahrraddiebstahl), glass breakage (Glasbruch), and items temporarily taken outside the home",
+      "Apply online with your address and flat size — payment via German IBAN is required",
+      "Store your policy number and insurer's claims hotline — you must report theft to the police (Polizeibericht) before filing a claim"
+    ],
+    "officialLinks": [
+      {
+        "label": "Verbraucherzentrale — Hausratversicherung guide",
+        "url": "https://www.verbraucherzentrale.de/wissen/versicherungen/hausrat-haftpflicht-und-co/hausratversicherung-wann-sie-sinnvoll-ist-und-was-sie-leistet-13662",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "integrationskurs",
+    "title": "Register for an Integration Course (Integrationskurs)",
+    "category": "language",
+    "priority": "medium",
+    "deadlineDaysFromArrival": 60,
+    "description": "Integration courses are subsidised by the German government and combine German language training (up to B1 level, 600 hours) with an orientation course on German law, history, and culture (100 hours). They are free or heavily subsidised for eligible newcomers. Family reunion visa holders are often legally required to attend; other visa types can attend voluntarily.",
+    "steps": [
+      "Check whether you are eligible and required to attend via the BAMF website",
+      "Apply for course admission at the BAMF or through an authorised course provider — you will need your passport, visa, and Meldebescheinigung",
+      "Find a local course provider using the BAMF course search tool — courses are offered by VHS, private language schools, and churches",
+      "Pay the reduced participant contribution (currently €1.95/hour after subsidies; free if receiving Bürgergeld or BAföG)",
+      "Attend all sessions — missing more than 10% of hours may disqualify you from receiving the completion certificate (Integrationskurszeugnis)"
+    ],
+    "officialLinks": [
+      {
+        "label": "BAMF — Integration courses overview",
+        "url": "https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/integrationskurse-node.html",
+        "verify": true
+      },
+      {
+        "label": "BAMF — Find a course near you",
+        "url": "https://www.bamf.de/SiteGlobals/Functions/WebGIS/DE/WebGIS_Integrationskursort/webgis_integrationskursort-node.html",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "residence-permit",
+    "title": "Apply for Residence Permit (Aufenthaltstitel)",
+    "category": "registration",
+    "priority": "critical",
+    "deadlineDaysFromArrival": 90,
+    "description": "Non-EU nationals must apply for a German residence permit (Aufenthaltstitel) at the local Ausländerbehörde (immigration office). Your entry visa is temporary — the residence permit is what allows you to legally stay, work, and study long-term. Book an appointment as early as possible: waiting times in major cities can be 6–12 weeks.",
+    "steps": [
+      "Book an appointment at your local Ausländerbehörde as soon as you arrive — do not wait until your visa is about to expire",
+      "Prepare your documents: valid passport, current visa, Meldebescheinigung, biometric passport photos (35×45 mm), proof of health insurance, proof of income or financing (employment contract, blocked account statement, or scholarship letter), and enrolment certificate if studying",
+      "Complete and print the application form for the relevant permit type from your city's Ausländerbehörde website",
+      "Attend your appointment and pay the processing fee (€100–110 for most permit types)",
+      "You will receive a temporary residence permit (Fiktionsbescheinigung) on the day; the full card arrives by post within 4–6 weeks"
+    ],
+    "officialLinks": [
+      {
+        "label": "BAMF — Residence titles overview",
+        "url": "https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/AufenthaltstitelBeschaeftigung/aufenthaltstitel-beschaeftigung-node.html",
+        "verify": true
+      },
+      {
+        "label": "Berlin — Ausländerbehörde appointment booking",
+        "url": "https://www.berlin.de/labo/willkommen-in-berlin/",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "kirchenaustritt",
+    "title": "Opt Out of Church Tax (Kirchenaustritt)",
+    "category": "registration",
+    "priority": "medium",
+    "deadlineDaysFromArrival": 90,
+    "description": "If you are registered in Germany as a member of a Catholic, Protestant, or Jewish religious community (indicated in your home country records), you will automatically be charged Kirchensteuer (church tax) — 8–9% of your income tax bill, roughly 0.4–0.8% of gross salary. To stop paying, you must formally declare your exit (Kirchenaustritt) at the local registry office or court. This has no effect on your faith — it is purely administrative.",
+    "steps": [
+      "Confirm whether you are subject to church tax by checking your first German payslip (look for 'KiSt' deductions) or asking your employer",
+      "Locate your local Amtsgericht (district court) or Standesamt (registry office) — the correct office depends on your federal state",
+      "Book an appointment — in some states (e.g., Bayern), you can declare by post or online",
+      "Bring your passport and Meldebescheinigung; pay the small processing fee (€25–35 depending on state)",
+      "You will receive a written confirmation; send a copy to your employer's payroll department to stop future deductions"
+    ],
+    "officialLinks": [
+      {
+        "label": "BMJ — Legal basis for church tax in Germany",
+        "url": "https://www.bundesjustizministerium.de/",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "language-course",
+    "title": "Enrol in a German Language Course (VHS)",
+    "category": "language",
+    "priority": "low",
+    "deadlineDaysFromArrival": 90,
+    "description": "Even basic German significantly reduces bureaucratic stress and helps with daily life. Volkshochschulen (VHS) — public adult education centres — offer courses from A1 to C1 at heavily subsidised rates (€80–200 per semester). Courses are available in the evenings and weekends. Private providers like Goethe-Institut offer more intensive options.",
+    "steps": [
+      "Find your nearest Volkshochschule using the VHS course search and browse their German course calendar",
+      "Assess your current level — most VHS providers offer free placement tests online or in person",
+      "Register online or in person for the next semester — courses fill quickly, so register early",
+      "Bring your Meldebescheinigung for registration; some VHS offer discounts for Bürgergeld or BAföG recipients",
+      "Supplement classes with free apps (Deutsche Welle's 'Deutsch Warum Nicht', Duolingo, Babbel) for daily practice"
+    ],
+    "officialLinks": [
+      {
+        "label": "Volkshochschule — Find a VHS near you",
+        "url": "https://www.volkshochschule.de/verbandswelt/volkshochschulen/volkshochschulen-in-ihrer-naehe.php",
+        "verify": true
+      },
+      {
+        "label": "Goethe-Institut — German courses in Germany",
+        "url": "https://www.goethe.de/de/spr/kup/dku.html",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "drivers-license",
+    "title": "Convert Your Driver's Licence",
+    "category": "transport",
+    "priority": "low",
+    "deadlineDaysFromArrival": 180,
+    "description": "If you hold a non-EU driving licence, it is generally valid in Germany for 6 months from the date of registration (Anmeldung). After that, you must convert it to a German licence (Führerschein) — the process varies significantly by country of issue. Some licences (e.g., from Japan, South Korea, USA certain states) can be converted without a test; others require a theory and/or practical exam.",
+    "steps": [
+      "Check whether your country of issue has a bilateral agreement with Germany on the BMDV website — this determines whether you need tests",
+      "Get your foreign licence officially translated by a certified translator (vereidigter Übersetzer) or ADAC — not all offices require this, but it speeds up the process",
+      "Apply at your local Führerscheinstelle (driving licence office) with: passport, Meldebescheinigung, current foreign licence, translation, biometric photo, and a first aid certificate (Erste-Hilfe-Kurs, valid if taken recently)",
+      "If required, pass the theory exam (Theorieprüfung) at a TÜV or DEKRA centre — an official German driving school can help you prepare",
+      "Pay the conversion fee (€35–60) and wait 2–4 weeks for the German Führerschein to arrive"
+    ],
+    "officialLinks": [
+      {
+        "label": "KBA — Foreign driving licence conversion",
+        "url": "https://www.kba.de/DE/ThemenBuerger/FuehrerscheinFahrerlaubnis/AuslaendischeFS/auslaendischeFS_node.html",
+        "verify": true
+      },
+      {
+        "label": "BMDV — Country-specific conversion rules",
+        "url": "https://bmdv.bund.de/SharedDocs/DE/Artikel/StV/fuehrerschein-ausland.html",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "tax-id",
+    "title": "Tax ID (Steueridentifikationsnummer)",
+    "category": "employment",
+    "priority": "high",
+    "deadlineDaysFromArrival": null,
+    "description": "Your Steueridentifikationsnummer (Steuer-ID) is an 11-digit number assigned automatically by the Bundeszentralamt für Steuern after your Anmeldung is processed. It is sent by post to your registered address within 2–4 weeks and is required by your employer for payroll. You keep this number for life, even if you leave and return to Germany.",
+    "steps": [
+      "Complete your Anmeldung — your Steuer-ID is issued automatically afterwards, no separate application needed",
+      "Wait 2–4 weeks for the letter from the Bundeszentralamt für Steuern (BZSt) to arrive at your registered address",
+      "If your employer needs it urgently before the letter arrives, request it online via the BZSt website using your name, address, and date of birth",
+      "Provide the 11-digit number to your employer's HR or payroll team"
+    ],
+    "officialLinks": [
+      {
+        "label": "Bundeszentralamt für Steuern — Steueridentifikationsnummer",
+        "url": "https://www.bzst.de/DE/Privatpersonen/SteuerlicheIdentifikationsnummer/steuerlicheidentifikationsnummer_node.html",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "sozialversicherung",
+    "title": "Get Your Social Insurance Number (Sozialversicherungsnummer)",
+    "category": "employment",
+    "priority": "high",
+    "deadlineDaysFromArrival": null,
+    "description": "Your Sozialversicherungsnummer (SVNR) is a 12-digit number issued by the Deutsche Rentenversicherung (DRV) and is required before you can start any paid employment in Germany. For employees, it is usually applied for automatically by the first employer. Students working part-time (Minijob or Werkstudent) also need it. The SVNR stays with you for life.",
+    "steps": [
+      "For employed workers: inform your employer before your start date — they will register you with the relevant health insurer, which then automatically notifies the DRV",
+      "The DRV will send your Sozialversicherungsausweis (insurance card) with your SVNR by post to your registered address within 2–4 weeks",
+      "If you need the SVNR urgently, contact your health insurer — they can look up your existing number if you had one from a previous stay in Germany",
+      "Students with a Minijob: your employer registers you with the Minijobzentrale, which issues your SVNR",
+      "Store the physical Sozialversicherungsausweis card safely — replace a lost card by applying to the DRV online"
+    ],
+    "officialLinks": [
+      {
+        "label": "Deutsche Rentenversicherung — Sozialversicherungsausweis",
+        "url": "https://www.deutsche-rentenversicherung.de/DRV/DE/Rente/Allgemeine-Informationen/Sozialversicherungsausweis/sozialversicherungsausweis_node.html",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "elster",
+    "title": "Register on ELSTER (Tax Return Portal)",
+    "category": "employment",
+    "priority": "low",
+    "deadlineDaysFromArrival": null,
+    "description": "ELSTER (Elektronische Steuererklärung) is the official German online portal for submitting tax returns. Registering takes 2–3 weeks because the activation certificate arrives by post. File your first German tax return (Steuererklärung) for the year you arrive — employed workers on a standard tax class often receive a refund of €500–1,500 due to partial-year employment.",
+    "steps": [
+      "Go to elster.de and click 'Benutzerkonto erstellen' — choose 'Privatperson' as your account type",
+      "Enter your Steuer-ID, date of birth, and registered address; submit the online form",
+      "Wait 1–2 weeks for an activation letter to arrive at your registered address containing a code",
+      "Complete the online activation using the code and set a secure password",
+      "Use ELSTER or a compatible app (Taxfix, Wundertax, SteuerGo) to file your tax return for the current year by 31 July of the following year"
+    ],
+    "officialLinks": [
+      {
+        "label": "ELSTER — Official tax portal",
+        "url": "https://www.elster.de/eportal/start",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["blue-card", "chancenkarte", "job-seeker", "family-reunion"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  }
+]
