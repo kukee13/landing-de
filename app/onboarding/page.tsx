@@ -77,10 +77,13 @@ export default function OnboardingPage() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const cityParam = searchParams.get('city') as City | null
+  const visaParam = searchParams.get('visa') as VisaType | null
+  const initialProfile: Partial<UserProfile> = {}
+  if (cityParam && CITIES.some((c) => c.value === cityParam)) initialProfile.city = cityParam
+  if (visaParam && VISA_TYPES.some((v) => v.value === visaParam)) initialProfile.visaType = visaParam
+
   const [step, setStep] = useState(1)
-  const [profile, setProfile] = useState<Partial<UserProfile>>(
-    cityParam && CITIES.some((c) => c.value === cityParam) ? { city: cityParam } : {}
-  )
+  const [profile, setProfile] = useState<Partial<UserProfile>>(initialProfile)
 
   const canAdvance =
     (step === 1 && Boolean(profile.city)) ||

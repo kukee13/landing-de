@@ -296,7 +296,8 @@
     "providers": [
       { "name": "N26", "url": "https://n26.com/en-de", "affiliateUrl": "https://n26.com/en-de", "note": "Most popular for newcomers, English app, free international transfers" },
       { "name": "DKB (Deutsche Kreditbank)", "url": "https://www.dkb.de", "affiliateUrl": "https://www.dkb.de", "note": "No monthly fee, free VISA debit card, great for students" },
-      { "name": "Commerzbank", "url": "https://www.commerzbank.de", "affiliateUrl": "https://www.commerzbank.de", "note": "Traditional bank, English support, branch access nationwide" }
+      { "name": "Commerzbank", "url": "https://www.commerzbank.de", "affiliateUrl": "https://www.commerzbank.de", "note": "Traditional bank, English support, branch access nationwide" },
+      { "name": "Wise (international transfers)", "url": "https://wise.com", "affiliateUrl": "https://wise.com", "note": "Not a full bank — best for sending money home and multi-currency accounts" }
     ]
   },
   {
