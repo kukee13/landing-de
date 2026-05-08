@@ -155,6 +155,46 @@
     "appointmentUrl": "https://service.berlin.de/dienstleistung/120686/"
   },
   {
+    "id": "blocked-account",
+    "title": "Open a Blocked Account (Sperrkonto)",
+    "category": "banking",
+    "priority": "critical",
+    "deadlineDaysFromArrival": 7,
+    "description": "A Sperrkonto (blocked account) is required by the German consulate as proof of financial means for student visa applicants. You must deposit €11,208 (€934 × 12 months) before applying for your visa. After arrival, you can withdraw €934 each month. Expatrio and Fintiba are the fastest options — entirely online, no German bank account needed.",
+    "steps": [
+      "Open a Sperrkonto online with Expatrio, Fintiba, or Deutsche Bank — you can do this entirely before leaving your home country",
+      "Transfer €11,208 to the blocked account (some providers allow a lower initial deposit with a payment plan)",
+      "Receive a confirmation letter (Kontoeröffnungsbestätigung) to submit as part of your student visa application",
+      "After arriving in Germany and completing your Anmeldung, activate monthly withdrawals — you receive €934 each month",
+      "Update your bank details as needed — if you open a German bank account later, you can redirect future withdrawals there"
+    ],
+    "officialLinks": [
+      {
+        "label": "DAAD — Finanzierungsnachweis (proof of financing)",
+        "url": "https://www.daad.de/de/studieren-und-forschen-in-deutschland/studium-planen/studium-in-deutschland/",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["student"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"],
+    "costEstimate": "€11,208 deposit (yours to withdraw) + ~€49–89 setup fee",
+    "timeEstimate": "15 min to apply online",
+    "documents": [
+      "Valid passport",
+      "University admission letter (for some providers)",
+      "Bank transfer to fund the account"
+    ],
+    "communityTips": [
+      "Expatrio and Fintiba are the most popular — both fully online and issue the confirmation letter within 1–2 business days",
+      "Deutsche Bank offers a Sperrkonto but requires an in-person visit at a German branch — less practical before arrival",
+      "Your money is safe — the Sperrkonto just restricts when you can access it, not the amount"
+    ],
+    "providers": [
+      { "name": "Expatrio", "url": "https://www.expatrio.com", "affiliateUrl": "https://www.expatrio.com", "note": "Most popular, fully online, ~€49 setup fee, confirmation letter in 24h" },
+      { "name": "Fintiba", "url": "https://www.fintiba.com", "affiliateUrl": "https://www.fintiba.com", "note": "Fully online, ~€89/year, English support, fast confirmation" }
+    ]
+  },
+  {
     "id": "university-enrollment",
     "title": "Complete University Enrolment & Get Student Card",
     "category": "registration",
@@ -639,6 +679,43 @@
     ],
     "applicableVisaTypes": ["student", "blue-card", "chancenkarte", "job-seeker", "family-reunion"],
     "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"]
+  },
+  {
+    "id": "job-search",
+    "title": "Register with Job Portals & Employment Agency",
+    "category": "employment",
+    "priority": "high",
+    "deadlineDaysFromArrival": 7,
+    "description": "Registering with the Bundesagentur für Arbeit (Federal Employment Agency) and German job portals is the first step to finding work. On a Chancenkarte or Job Seeker Visa, you can work up to 20 hours/week or do short-term trial work while you search. Registering with the BA also entitles you to free career counselling and German language courses.",
+    "steps": [
+      "Register on the Make it in Germany jobs portal (makeingermany.de) — the official government portal for skilled workers",
+      "Create profiles on LinkedIn (essential for white-collar roles) and XING (Germany's professional network)",
+      "Register at your local Arbeitsagentur (federal employment agency) — required to access free counselling and job matching services",
+      "Sign up for job alerts on StepStone, Indeed Germany, and academics.de for research/academic roles",
+      "If holding a Chancenkarte: you may work up to 20 hours/week or do up to 2 weeks of trial work with any employer"
+    ],
+    "officialLinks": [
+      {
+        "label": "Make it in Germany — Official jobs portal",
+        "url": "https://www.make-it-in-germany.com/en/jobs/",
+        "verify": true
+      },
+      {
+        "label": "Bundesagentur für Arbeit — Jobsuche",
+        "url": "https://www.arbeitsagentur.de/jobsuche/",
+        "verify": true
+      }
+    ],
+    "applicableVisaTypes": ["chancenkarte", "job-seeker"],
+    "applicableCities": ["frankfurt", "berlin", "munich", "hamburg", "cologne", "other"],
+    "costEstimate": "Free",
+    "timeEstimate": "1–2 hours to set up all profiles",
+    "communityTips": [
+      "LinkedIn InMail to hiring managers gets better response rates than applying through job boards in Germany",
+      "German CVs follow a specific format: photo, personal details, reverse-chronological work history — use a German CV template",
+      "Industry trade fairs (CeBIT, Hannover Messe, MEDICA) are excellent networking opportunities — many employers recruit on the spot",
+      "The Chancenkarte allows 2 weeks of Probearbeit (trial work) with any employer — a powerful way to secure a job offer"
+    ]
   },
   {
     "id": "elster",

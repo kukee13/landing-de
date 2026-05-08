@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
-import { CheckCircle2 } from 'lucide-react'
+import { CheckCircle2, ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
 
@@ -11,6 +11,39 @@ export const metadata: Metadata = {
   description:
     'A free personalized checklist of bureaucratic tasks for international students and skilled workers arriving in Germany.',
 }
+
+const FAQ_ITEMS = [
+  {
+    question: 'What is Anmeldung and when do I need to do it?',
+    answer:
+      'Anmeldung is the mandatory address registration at your local Bürgeramt (citizen services office). You must complete it within 14 days of moving into your accommodation. The Meldebescheinigung (registration certificate) you receive is required for almost everything else: opening a bank account, applying for your residence permit, and getting your tax ID.',
+  },
+  {
+    question: 'What health insurance do I need in Germany?',
+    answer:
+      'Health insurance is mandatory in Germany from day 1 of residence. Most newcomers choose statutory insurance (GKV) — popular providers include TK, BARMER, and AOK. Students pay a subsidised rate of around €120/month. Employees have contributions split with their employer (~€350–450/month total). Private insurance (PKV) is only available if you earn above ~€69,300/year or are self-employed.',
+  },
+  {
+    question: 'Do I need a blocked account (Sperrkonto) to study in Germany?',
+    answer:
+      'Yes, if you are applying for a German student visa as a non-EU national, you must open a Sperrkonto with €11,208 (€934/month × 12 months). After you arrive, you can withdraw €934 each month. Popular providers are Expatrio and Fintiba. You can open the account entirely online.',
+  },
+  {
+    question: 'How long does it take to get a German bank account?',
+    answer:
+      'Online banks like N26 and DKB take 10–15 minutes to apply and 5–10 business days to receive your debit card by post. Traditional banks require an in-person appointment and can take 2–3 weeks. You need your passport and Meldebescheinigung. Online banks are the fastest option for newcomers.',
+  },
+  {
+    question: 'What is the Deutschlandticket and should I get it?',
+    answer:
+      'The Deutschlandticket costs €58/month and gives unlimited travel on all regional public transport across Germany — U-Bahn, S-Bahn, buses, trams, and regional trains. Students may already have a transport pass included in their semester fee — check before buying. You need a German bank account (IBAN) for the monthly direct debit.',
+  },
+  {
+    question: 'How long does it take to get a residence permit (Aufenthaltstitel)?',
+    answer:
+      'You should book an appointment at the Ausländerbehörde (immigration office) as soon as you arrive — waiting times in Berlin and Munich are 6–12 weeks. On the day of your appointment, you receive a temporary permit (Fiktionsbescheinigung) which allows you to legally stay and work. The physical card arrives by post within 4–6 weeks.',
+  },
+]
 
 const VALUE_PROPS = [
   {
@@ -35,9 +68,23 @@ const VALUE_PROPS = [
   },
 ]
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+}
+
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <main>
         {/* Hero */}
         <section className="px-4 pt-16 pb-12 text-center sm:pt-24 sm:pb-16">
@@ -67,6 +114,31 @@ export default function HomePage() {
               Get my timeline →
             </Link>
             <p className="text-sm text-gray-500">No email. No sign-up.</p>
+          </div>
+        </section>
+
+        {/* Visa quick-start */}
+        <section className="border-t px-4 py-8 bg-gray-50">
+          <div className="mx-auto max-w-xl">
+            <p className="mb-4 text-center text-sm font-medium text-gray-500">Pick your visa — get an instant checklist</p>
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
+              {[
+                { visa: 'student', label: 'Student Visa', emoji: '🎓' },
+                { visa: 'blue-card', label: 'EU Blue Card', emoji: '💼' },
+                { visa: 'chancenkarte', label: 'Chancenkarte', emoji: '🎯' },
+                { visa: 'job-seeker', label: 'Job Seeker', emoji: '🔍' },
+                { visa: 'family-reunion', label: 'Family Reunion', emoji: '🏠' },
+              ].map(({ visa, label, emoji }) => (
+                <Link
+                  key={visa}
+                  href={`/onboarding?visa=${visa}`}
+                  className="flex flex-col items-center gap-1.5 rounded-xl border bg-white px-3 py-3 text-center transition-all hover:border-gray-400 hover:shadow-sm"
+                >
+                  <span className="text-xl">{emoji}</span>
+                  <span className="text-xs font-medium text-gray-700 leading-tight">{label}</span>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -107,6 +179,30 @@ export default function HomePage() {
             Get my personalized checklist →
           </Link>
         </section>
+
+        <Separator />
+
+        {/* FAQ */}
+        <section className="px-4 py-12 sm:py-16">
+          <div className="mx-auto max-w-2xl">
+            <h2 className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-gray-500">
+              Frequently asked questions
+            </h2>
+            <dl className="space-y-4">
+              {FAQ_ITEMS.map(({ question, answer }) => (
+                <details key={question} className="group rounded-xl border bg-white">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4">
+                    <span className="font-medium text-gray-900">{question}</span>
+                    <ChevronDown className="h-4 w-4 shrink-0 text-gray-400 transition-transform group-open:rotate-180" />
+                  </summary>
+                  <div className="px-5 pb-4 pt-0">
+                    <p className="text-sm leading-relaxed text-gray-600">{answer}</p>
+                  </div>
+                </details>
+              ))}
+            </dl>
+          </div>
+        </section>
       </main>
 
       {/* Footer */}
@@ -137,6 +233,17 @@ export default function HomePage() {
           <Link href="/guide/bank-account-germany" className="underline hover:text-gray-600">Bank account</Link>
           <Link href="/guide/health-insurance-germany" className="underline hover:text-gray-600">Health insurance</Link>
           <Link href="/guide/residence-permit-germany" className="underline hover:text-gray-600">Residence permit</Link>
+        </div>
+        <div className="mt-2 flex flex-wrap justify-center gap-3">
+          <span className="text-gray-300">From:</span>
+          <Link href="/from/india" className="underline hover:text-gray-600">India</Link>
+          <Link href="/from/china" className="underline hover:text-gray-600">China</Link>
+          <Link href="/from/nigeria" className="underline hover:text-gray-600">Nigeria</Link>
+          <Link href="/from/usa" className="underline hover:text-gray-600">USA</Link>
+          <Link href="/from/turkey" className="underline hover:text-gray-600">Turkey</Link>
+          <Link href="/from/brazil" className="underline hover:text-gray-600">Brazil</Link>
+          <Link href="/from/philippines" className="underline hover:text-gray-600">Philippines</Link>
+          <Link href="/from/ukraine" className="underline hover:text-gray-600">Ukraine</Link>
         </div>
         <div className="mt-3 flex justify-center gap-4">
           <Link href="/impressum" className="underline hover:text-gray-600">Impressum</Link>

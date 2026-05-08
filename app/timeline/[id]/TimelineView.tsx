@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useParams, useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { CheckCircle2, Share2, Mail, ChevronDown, ChevronUp } from 'lucide-react'
+import { CheckCircle2, Share2, Mail, ChevronDown, ChevronUp, Zap } from 'lucide-react'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Progress } from '@/components/ui/progress'
 import { Badge } from '@/components/ui/badge'
@@ -112,6 +112,7 @@ export default function TimelineView() {
   const [timelineState, setTimelineState] = useState<TimelineState | null>(null)
   const [copied, setCopied] = useState(false)
   const [activeCategory, setActiveCategory] = useState<'all' | TaskCategory>('all')
+  const [viewMode, setViewMode] = useState<'category' | 'deadline'>('category')
   const [email, setEmail] = useState('')
   const [emailStatus, setEmailStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
   const confettiFired = useRef(false)
@@ -185,6 +186,28 @@ export default function TimelineView() {
     : allFilteredTasks.filter((t) => t.category === activeCategory)
 
   const completedCount = allFilteredTasks.filter((t) => timelineState.completedTaskIds.includes(t.id)).length
+
+  const DEADLINE_GROUPS = [
+    { key: 'week', label: '🔴 This week', subtitle: 'Days 1–7', min: 0, max: 7 },
+    { key: 'month', label: '🟡 First month', subtitle: 'Days 8–30', min: 8, max: 30 },
+    { key: 'quarter', label: '🔵 First 3 months', subtitle: 'Days 31–90', min: 31, max: 90 },
+    { key: 'flexible', label: '⚪ Flexible', subtitle: 'No fixed deadline', min: null, max: null },
+  ]
+
+  function getDeadlineGroup(task: Task) {
+    if (task.deadlineDaysFromArrival === null) return 'flexible'
+    const d = task.deadlineDaysFromArrival
+    if (d <= 7) return 'week'
+    if (d <= 30) return 'month'
+    return 'quarter'
+  }
+
+  // Find the first incomplete critical/high task to surface as the next action
+  const nextUrgentTask = allFilteredTasks.find(
+    (t) =>
+      !timelineState.completedTaskIds.includes(t.id) &&
+      (t.priority === 'critical' || t.priority === 'high'),
+  )
   const progress = allFilteredTasks.length > 0 ? (completedCount / allFilteredTasks.length) * 100 : 0
   const allDone = allFilteredTasks.length > 0 && completedCount === allFilteredTasks.length
 
@@ -226,31 +249,122 @@ export default function TimelineView() {
         </div>
       </div>
 
-      {/* Category tabs */}
+      {/* View mode toggle + tabs */}
       <div className="border-b bg-white">
-        <div className="mx-auto max-w-lg overflow-x-auto">
-          <div className="flex gap-1 px-4 py-2">
-            {availableCategories.map((c) => (
-              <button
-                key={c.value}
-                onClick={() => setActiveCategory(c.value)}
-                className={[
-                  'shrink-0 rounded-full px-3 py-1 text-xs font-medium transition-colors',
-                  activeCategory === c.value
-                    ? 'bg-black text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200',
-                ].join(' ')}
-              >
-                {c.label}
-              </button>
-            ))}
+        <div className="mx-auto max-w-lg">
+          {/* Mode toggle */}
+          <div className="flex gap-1 border-b border-gray-100 px-4 pt-2">
+            <button
+              onClick={() => setViewMode('category')}
+              className={[
+                'px-3 py-1.5 text-xs font-medium transition-colors border-b-2 -mb-px',
+                viewMode === 'category' ? 'border-black text-black' : 'border-transparent text-gray-400 hover:text-gray-600',
+              ].join(' ')}
+            >
+              By category
+            </button>
+            <button
+              onClick={() => setViewMode('deadline')}
+              className={[
+                'px-3 py-1.5 text-xs font-medium transition-colors border-b-2 -mb-px',
+                viewMode === 'deadline' ? 'border-black text-black' : 'border-transparent text-gray-400 hover:text-gray-600',
+              ].join(' ')}
+            >
+              By deadline
+            </button>
           </div>
+          {/* Category tabs — only shown in category mode */}
+          {viewMode === 'category' && (
+            <div className="overflow-x-auto">
+              <div className="flex gap-1 px-4 py-2">
+                {availableCategories.map((c) => (
+                  <button
+                    key={c.value}
+                    onClick={() => setActiveCategory(c.value)}
+                    className={[
+                      'shrink-0 rounded-full px-3 py-1 text-xs font-medium transition-colors',
+                      activeCategory === c.value
+                        ? 'bg-black text-white'
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200',
+                    ].join(' ')}
+                  >
+                    {c.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
+      {/* Next task urgency banner */}
+      {nextUrgentTask && !allDone && (
+        <div className="border-b bg-amber-50 px-4 py-3">
+          <div className="mx-auto max-w-lg">
+            <div className="flex items-start gap-3">
+              <Zap className="mt-0.5 h-4 w-4 shrink-0 text-amber-500" />
+              <div className="min-w-0 flex-1">
+                <p className="text-xs font-semibold uppercase tracking-wide text-amber-700">Do this next</p>
+                <p className="mt-0.5 truncate text-sm font-medium text-gray-900">{nextUrgentTask.title}</p>
+              </div>
+              <Link
+                href={`/tasks/${nextUrgentTask.id}?ref=${id}&city=${profile.city}&visa=${profile.visaType}&arrival=${profile.arrivalDate}&country=${encodeURIComponent(profile.countryOfOrigin)}`}
+                className="shrink-0 rounded-lg bg-amber-500 px-3 py-1.5 text-xs font-semibold text-white hover:bg-amber-600 transition-colors"
+              >
+                View →
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Task list */}
       <div className="mx-auto max-w-lg space-y-3 px-4 py-6">
-        {tasks.length === 0 ? (
+        {viewMode === 'deadline' ? (
+          // Deadline-grouped view
+          DEADLINE_GROUPS.map((group) => {
+            const groupTasks = allFilteredTasks.filter((t) => getDeadlineGroup(t) === group.key)
+            if (groupTasks.length === 0) return null
+            const doneInGroup = groupTasks.filter((t) => timelineState.completedTaskIds.includes(t.id)).length
+            return (
+              <div key={group.key}>
+                <div className="mb-2 flex items-center justify-between">
+                  <div>
+                    <span className="text-sm font-semibold text-gray-900">{group.label}</span>
+                    <span className="ml-2 text-xs text-gray-400">{group.subtitle}</span>
+                  </div>
+                  <span className="text-xs text-gray-400">{doneInGroup}/{groupTasks.length} done</span>
+                </div>
+                <div className="space-y-2">
+                  {groupTasks.map((task) => {
+                    const isCompleted = timelineState.completedTaskIds.includes(task.id)
+                    const chip = task.deadlineDaysFromArrival !== null
+                      ? deadlineChip(profile.arrivalDate, task.deadlineDaysFromArrival)
+                      : null
+                    return (
+                      <div key={task.id} className={['rounded-xl border bg-white p-4 transition-opacity duration-200', isCompleted ? 'opacity-50' : ''].join(' ')}>
+                        <div className="flex gap-3">
+                          <Checkbox checked={isCompleted} onCheckedChange={() => handleToggle(task.id)} className="mt-0.5 shrink-0" />
+                          <div className="min-w-0 flex-1">
+                            <p className={['font-medium leading-snug text-gray-900', isCompleted ? 'line-through' : ''].join(' ')}>{task.title}</p>
+                            <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                              <span className={['rounded-full px-2 py-0.5 text-xs font-medium capitalize', PRIORITY_STYLES[task.priority]].join(' ')}>{task.priority}</span>
+                              {chip ? <span className={['text-xs', chip.className].join(' ')}>{chip.label}</span> : <span className="text-xs text-gray-400">Flexible</span>}
+                            </div>
+                            <div className="mt-1.5 flex items-center gap-3">
+                              <Link href={`/tasks/${task.id}?ref=${id}&city=${profile.city}&visa=${profile.visaType}&arrival=${profile.arrivalDate}&country=${encodeURIComponent(profile.countryOfOrigin)}`} className="text-sm text-black underline underline-offset-2 hover:no-underline">View steps →</Link>
+                            </div>
+                            <TaskNoteField timelineId={id} taskId={task.id} />
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            )
+          })
+        ) : tasks.length === 0 ? (
           <div className="rounded-xl border bg-white p-8 text-center">
             <p className="font-medium text-gray-700">No tasks in this category</p>
             <button onClick={() => setActiveCategory('all')} className="mt-2 text-sm text-black underline">
@@ -264,7 +378,6 @@ export default function TimelineView() {
               ? deadlineChip(profile.arrivalDate, task.deadlineDaysFromArrival)
               : null
 
-            // Find any sponsor to show after this task
             const sponsorHere = SPONSORS.find(
               (s) =>
                 s.showAfterTaskIndex === index &&
@@ -274,24 +387,13 @@ export default function TimelineView() {
 
             return (
               <div key={task.id}>
-                <div
-                  className={['rounded-xl border bg-white p-4 transition-opacity duration-200', isCompleted ? 'opacity-50' : ''].join(' ')}
-                >
+                <div className={['rounded-xl border bg-white p-4 transition-opacity duration-200', isCompleted ? 'opacity-50' : ''].join(' ')}>
                   <div className="flex gap-3">
-                    <Checkbox
-                      checked={isCompleted}
-                      onCheckedChange={() => handleToggle(task.id)}
-                      className="mt-0.5 shrink-0"
-                    />
+                    <Checkbox checked={isCompleted} onCheckedChange={() => handleToggle(task.id)} className="mt-0.5 shrink-0" />
                     <div className="min-w-0 flex-1">
-                      <p className={['font-medium leading-snug text-gray-900', isCompleted ? 'line-through' : ''].join(' ')}>
-                        {task.title}
-                      </p>
-
+                      <p className={['font-medium leading-snug text-gray-900', isCompleted ? 'line-through' : ''].join(' ')}>{task.title}</p>
                       <div className="mt-2 flex flex-wrap items-center gap-1.5">
-                        <span className={['rounded-full px-2 py-0.5 text-xs font-medium capitalize', PRIORITY_STYLES[task.priority]].join(' ')}>
-                          {task.priority}
-                        </span>
+                        <span className={['rounded-full px-2 py-0.5 text-xs font-medium capitalize', PRIORITY_STYLES[task.priority]].join(' ')}>{task.priority}</span>
                         <Badge variant="outline" className="text-xs capitalize">{task.category}</Badge>
                         {chip ? (
                           <span className={['text-xs', chip.className].join(' ')}>{chip.label}</span>
@@ -302,24 +404,13 @@ export default function TimelineView() {
                           <span className="text-xs text-gray-400">{task.costEstimate}</span>
                         )}
                       </div>
-
                       <p className="mt-2 line-clamp-2 text-sm text-gray-600">{task.description}</p>
-
                       <div className="mt-2 flex items-center gap-3">
-                        <Link
-                          href={`/tasks/${task.id}?ref=${id}&city=${profile.city}&visa=${profile.visaType}&arrival=${profile.arrivalDate}&country=${encodeURIComponent(profile.countryOfOrigin)}`}
-                          className="text-sm text-black underline underline-offset-2 hover:no-underline"
-                        >
-                          View steps →
-                        </Link>
+                        <Link href={`/tasks/${task.id}?ref=${id}&city=${profile.city}&visa=${profile.visaType}&arrival=${profile.arrivalDate}&country=${encodeURIComponent(profile.countryOfOrigin)}`} className="text-sm text-black underline underline-offset-2 hover:no-underline">View steps →</Link>
                         {task.appointmentUrl && (
-                          <a href={task.appointmentUrl} target="_blank" rel="noopener noreferrer"
-                            className="text-sm text-blue-600 underline underline-offset-2 hover:no-underline">
-                            Book appointment ↗
-                          </a>
+                          <a href={task.appointmentUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-blue-600 underline underline-offset-2 hover:no-underline">Book appointment ↗</a>
                         )}
                       </div>
-
                       <TaskNoteField timelineId={id} taskId={task.id} />
                     </div>
                   </div>

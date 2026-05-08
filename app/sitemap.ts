@@ -10,6 +10,15 @@ const GUIDE_SLUGS = [
   'bank-account-germany',
   'health-insurance-germany',
   'residence-permit-germany',
+  'blocked-account-germany',
+  'tax-return-germany',
+  'chancenkarte-germany',
+  'german-cv-format',
+  'driving-licence-germany',
+]
+
+const FROM_COUNTRIES = [
+  'india', 'china', 'nigeria', 'usa', 'turkey', 'brazil', 'philippines', 'ukraine',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -41,6 +50,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
+    })),
+
+    ...FROM_COUNTRIES.map((country) => ({
+      url: `${BASE_URL}/from/${country}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
     })),
 
     ...tasks.map((task) => ({

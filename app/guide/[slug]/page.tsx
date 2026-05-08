@@ -172,7 +172,7 @@ const GUIDES: Record<string, Guide> = {
       { name: 'Wise (multi-currency)', url: 'https://wise.com', note: 'Not a full bank, but excellent for international transfers and holding multiple currencies' },
     ],
     relatedTaskId: 'bank-account',
-    relatedGuides: ['anmeldung-germany', 'health-insurance-germany'],
+    relatedGuides: ['anmeldung-germany', 'health-insurance-germany', 'blocked-account-germany'],
   },
 
   'health-insurance-germany': {
@@ -239,7 +239,7 @@ const GUIDES: Record<string, Guide> = {
       { name: 'AOK', url: 'https://www.aok.de/pk/', note: 'Largest GKV by member count, strong regional offices' },
     ],
     relatedTaskId: 'health-insurance',
-    relatedGuides: ['anmeldung-germany', 'residence-permit-germany'],
+    relatedGuides: ['anmeldung-germany', 'residence-permit-germany', 'blocked-account-germany'],
   },
 
   'residence-permit-germany': {
@@ -311,6 +311,436 @@ const GUIDES: Record<string, Guide> = {
     relatedTaskId: 'residence-permit',
     relatedGuides: ['anmeldung-germany', 'health-insurance-germany'],
   },
+
+  'blocked-account-germany': {
+    title: 'Blocked Account (Sperrkonto) Germany: Complete Guide for Students (2025)',
+    metaTitle: 'Blocked Account Germany (Sperrkonto): Expatrio vs Fintiba — Complete Guide 2025',
+    metaDescription:
+      'Everything you need to know about opening a blocked account (Sperrkonto) in Germany. Compare Expatrio and Fintiba, step-by-step setup, and how to release funds after arrival.',
+    category: 'Banking',
+    readingTime: '6 min',
+    lastUpdated: 'January 2025',
+    intro:
+      'A blocked account (Sperrkonto) is a mandatory requirement for international students applying for a German student visa. You must deposit €11,208 (€934 × 12 months) before your visa application, and after arriving in Germany, you can withdraw €934 each month. Expatrio and Fintiba are the fastest — both fully online, no German bank account needed.',
+    sections: [
+      {
+        heading: 'What is a Sperrkonto?',
+        body: 'A Sperrkonto (blocked account) is a special bank account that holds your financial security deposit. The German government requires it to ensure you have enough money to support yourself for one year without working. The money is yours — it is not a fee or deposit you lose. The "blocking" simply means you can only withdraw a fixed monthly amount (€934) after arriving in Germany.',
+        list: [
+          'You deposit €11,208 (€934 × 12) before your visa application',
+          'The bank issues a confirmation letter (Kontoeröffnungsbestätigung) — this is what you submit with your visa application',
+          'After you arrive in Germany and activate your account, you receive €934 each month',
+          'After 12 months, the blocking lifts and you can access the remaining balance freely',
+        ],
+      },
+      {
+        heading: 'Who needs a Sperrkonto?',
+        body: 'A blocked account is required for:',
+        list: [
+          'Non-EU students applying for a German student visa at a German embassy or consulate',
+          'Students extending their student residence permit in Germany in some cases',
+          'Applicants from countries that require a Sperrkonto as part of the visa process (India, China, Nigeria, Pakistan, etc.)',
+        ],
+        tip: 'EU citizens do not need a Sperrkonto — freedom of movement applies. Students with a fully-funded DAAD or Erasmus scholarship may be exempt if their scholarship letter covers the full amount.',
+      },
+      {
+        heading: 'Expatrio — fastest and most popular',
+        body: 'Expatrio is the most popular Sperrkonto provider among Indian and international students. It partners with Deutsche Kreditbank (DKB) and can issue your confirmation letter within 24 hours of your deposit clearing.',
+        list: [
+          'Setup fee: ~€49 one-time',
+          'Confirmation letter issued within 1–2 business days of deposit clearing',
+          'Fully English-language process — no German required',
+          'Optional extras: health insurance, travel insurance, SIM card bundled',
+          'After arrival: activate online, receive €934/month via bank transfer',
+        ],
+      },
+      {
+        heading: 'Fintiba — strong alternative with extra services',
+        body: 'Fintiba is the second most popular provider and offers a broader financial platform. It charges an annual fee and provides a Solaris Bank-backed account.',
+        list: [
+          'Annual fee: ~€89/year (first year)',
+          'Confirmation letter within 2–3 business days',
+          'Optional liability insurance and Haftpflicht bundles',
+          'English-language support team',
+          'Fintiba PRIME bundle includes health insurance for an additional fee',
+        ],
+        tip: 'Both Expatrio and Fintiba are reliable. Expatrio is slightly cheaper; Fintiba\'s insurance bundles can be convenient if you need to arrange multiple products at once.',
+      },
+      {
+        heading: 'Deutsche Bank — for those who prefer traditional banking',
+        body: 'Deutsche Bank offers a Sperrkonto but requires an in-person visit to a Deutsche Bank branch in Germany or — in some countries — at a partner bank. It is slower and less convenient than Expatrio or Fintiba.',
+        warning: 'Avoid Deutsche Bank Sperrkonto if you are setting up from outside Germany — the in-person requirement makes it impractical and the process takes 2–4 weeks.',
+      },
+      {
+        heading: 'Step-by-step: how to open a Sperrkonto',
+        body: 'The process with Expatrio or Fintiba takes 15 minutes to start:',
+        list: [
+          'Go to Expatrio.com or Fintiba.com and click "Open Sperrkonto"',
+          'Fill in your personal details: name, date of birth, passport number, home address',
+          'Pay the setup fee by card or bank transfer',
+          'Transfer €11,208 to the provided bank account (wire transfer from any bank worldwide)',
+          'Wait 1–3 business days for the deposit to clear and receive your confirmation letter by email',
+          'Submit the confirmation letter as part of your student visa application',
+        ],
+      },
+      {
+        heading: 'After arriving in Germany: releasing your funds',
+        body: 'Once you arrive and complete your Anmeldung, you can activate your Sperrkonto:',
+        list: [
+          'Log in to your Expatrio/Fintiba account and submit your Meldebescheinigung',
+          'Set up a German bank account (N26, DKB) to receive the monthly transfer — or use a PayPal/Revolut account in the interim',
+          'Your first €934 transfer will arrive within a few business days of activation',
+          'Subsequent transfers happen automatically each month on the same date',
+        ],
+      },
+    ],
+    providers: [
+      { name: 'Expatrio', url: 'https://www.expatrio.com', note: '~€49 setup fee, fastest confirmation letter, most popular for Indian students' },
+      { name: 'Fintiba', url: 'https://www.fintiba.com', note: '~€89/year, English support, optional insurance bundles' },
+    ],
+    relatedTaskId: 'blocked-account',
+    relatedGuides: ['anmeldung-germany', 'bank-account-germany', 'health-insurance-germany'],
+  },
+
+  'chancenkarte-germany': {
+    title: 'Chancenkarte Germany (Opportunity Card): Complete Guide 2025',
+    metaTitle: 'Chancenkarte Germany 2025: Who Qualifies, Points System, and How to Apply',
+    metaDescription:
+      'Complete guide to Germany\'s Chancenkarte (Opportunity Card). Who qualifies, how the points system works, what you can do while in Germany, and how to convert to a work permit.',
+    category: 'Visa',
+    readingTime: '8 min',
+    lastUpdated: 'January 2025',
+    intro:
+      'The Chancenkarte (Opportunity Card) is Germany\'s points-based visa for skilled workers who don\'t yet have a job offer. Launched in June 2024, it allows you to enter Germany, look for work, and take on limited employment for up to 12 months. If you find a qualifying job, you convert in-country — no need to return home.',
+    sections: [
+      {
+        heading: 'What is the Chancenkarte?',
+        body: 'The Chancenkarte replaces the older Job Seeker Visa with a more structured, points-based system. Unlike the Blue Card (which requires a job offer), the Chancenkarte lets you enter Germany first and job-hunt from within the country. You earn points based on your qualifications, work experience, language skills, age, and ties to Germany.',
+        list: [
+          'Valid for 12 months from entry — non-renewable',
+          'Costs €100 at the Ausländerbehörde after arrival',
+          'You can work up to 20 hours per week in any job while searching',
+          'Probearbeit (trial work): up to 2 weeks with any employer — even without a contract',
+          'Once you find a qualifying job, you convert the Chancenkarte to a work permit in Germany',
+        ],
+      },
+      {
+        heading: 'Do you qualify? The basic requirements',
+        body: 'Before calculating points, you must meet all three baseline requirements:',
+        list: [
+          '1. Recognised qualification: either a 4-year university degree recognised in Germany (check Anabin) OR a completed German vocational qualification (Berufsausbildung) AND at least 5 years of relevant professional experience',
+          '2. Financial means: proof of sufficient funds to support yourself for the full 12 months — approximately €12,000 in a bank account or a blocked account',
+          '3. Language skills: at least A1 German or B2 English (used only as baseline; more points for higher levels)',
+        ],
+        warning: 'Check your degree on the Anabin database before applying. A degree rated "H+" or "H++" is fully recognised. If your degree isn\'t in the database, apply for a Statement of Comparability (Zeugnisbewertung) from the anabin-kmk office.',
+      },
+      {
+        heading: 'The points system: how to calculate your score',
+        body: 'You need at least 6 points from the following criteria:',
+        list: [
+          'Qualification: 4-year university degree = 4 points | German vocational qualification = 2 points',
+          'Professional experience: 5+ years relevant experience = 3 points | 2–5 years = 2 points',
+          'German language skills: B2 = 4 points | A2 = 2 points | A1 = 1 point',
+          'Age: under 35 = 3 points | 35–40 = 2 points | 41–45 = 1 point',
+          'English B2 or higher = 2 points',
+          'Ties to Germany: close relative living in Germany = 1 point | prior legal stay of 6+ months = 1 point',
+        ],
+        tip: 'Most university graduates with 5+ years of experience and B1 German (or English B2) comfortably score 6+ points. Use the official calculator on make-it-in-germany.com to verify your score.',
+      },
+      {
+        heading: 'What can you do on the Chancenkarte?',
+        body: 'The Chancenkarte is not a work visa — it is a job-search permit. Your allowed activities are:',
+        list: [
+          'Work up to 20 hours per week in any job (Nebenbeschäftigung) — this covers living costs while you search',
+          'Probearbeit: work full-time with one employer for up to 2 weeks as a trial — this is a key tool for securing job offers without a formal contract',
+          'Attend job fairs, networking events, and company visits',
+          'Register with the Bundesagentur für Arbeit for free career counselling (they cannot place you, but they provide job leads)',
+          'You cannot start full-time employment until you have converted to a work permit',
+        ],
+      },
+      {
+        heading: 'Converting to a work permit',
+        body: 'If you receive a qualifying job offer during your 12 months, you convert the Chancenkarte to a work permit at the Ausländerbehörde — without leaving Germany. The conversion options are:',
+        list: [
+          'EU Blue Card: if salary meets the threshold (€45,300 for shortage occupations, €56,400 general) and you have a recognised degree',
+          'Skilled worker residence permit (§ 18a/b AufenthG): for recognised vocational qualifications',
+          'You apply for the conversion at your local Ausländerbehörde — bring your employment contract, passport, current Chancenkarte, and Meldebescheinigung',
+        ],
+        tip: 'Book your conversion appointment as early as possible after receiving a job offer — appointment waiting times in major cities are 6–12 weeks, and your Chancenkarte must still be valid when you submit the application.',
+      },
+      {
+        heading: 'How to apply for the Chancenkarte',
+        body: 'The application process depends on your nationality and whether your country is visa-free for Germany:',
+        list: [
+          'Non-visa-free countries: apply at the German embassy in your home country with your qualifications, bank statements, points calculation, and passport photos',
+          'Visa-free countries (e.g. USA, Canada, Australia): enter Germany as a tourist and apply for the Chancenkarte at the Ausländerbehörde within your 90-day visa-free period',
+          'Submit: application form, degree certificates (translated and certified), proof of financial means, CV, and language certificate',
+          'Processing at embassy: 4–12 weeks | At Ausländerbehörde in Germany: 4–8 weeks',
+        ],
+      },
+    ],
+    relatedTaskId: 'job-search',
+    relatedGuides: ['bank-account-germany', 'health-insurance-germany', 'residence-permit-germany'],
+  },
+
+  'german-cv-format': {
+    title: 'German CV Format (Lebenslauf) 2025: Complete Guide with Structure',
+    metaTitle: 'German CV Format 2025: How to Write a Lebenslauf for Germany',
+    metaDescription:
+      'How to write a German CV (Lebenslauf) that gets interviews. Structure, photo rules, what to include and exclude — with a section-by-section breakdown for international applicants.',
+    category: 'Employment',
+    readingTime: '7 min',
+    lastUpdated: 'January 2025',
+    intro:
+      'A German CV (Lebenslauf) follows specific conventions that differ significantly from Anglo-American CVs. German employers expect a clean, structured, 1–2 page document with a professional photo, precise employment dates, and no unexplained gaps. Getting the format right is the first filter — a poorly structured CV signals unfamiliarity with German work culture.',
+    sections: [
+      {
+        heading: 'Key differences from other CV formats',
+        body: 'German CVs differ from British and American CVs in several important ways:',
+        list: [
+          'Photo: a professional headshot is standard and expected — typically in the top-right corner',
+          'Personal data: include full name, address, phone number, email, date of birth, nationality, and LinkedIn',
+          'No "References available upon request" — German employers contact references separately',
+          'Career objective: rarely used in Germany — let your experience speak for itself',
+          'Length: 1 page for under 5 years experience, 2 pages maximum for senior roles',
+          'Signature: traditional German CVs are signed and dated at the bottom',
+        ],
+        tip: 'German employers do not discard CVs with photos on the grounds of discrimination — the photo is a standard, expected element. Use a professional headshot (not a selfie or holiday photo).',
+      },
+      {
+        heading: 'Structure: section by section',
+        body: 'Use this order for a standard German CV:',
+        list: [
+          '1. Contact details (Kontaktdaten): full name, phone, email, address, LinkedIn, GitHub (for tech roles)',
+          '2. Work experience (Berufserfahrung): reverse chronological order — most recent role first. For each role: company name, job title, dates (MM/YYYY – MM/YYYY), and 3–5 bullet points of achievements',
+          '3. Education (Ausbildung / Bildung): reverse chronological — degree, institution, dates, grade (if strong)',
+          '4. Skills (Kenntnisse): technical skills, software, certifications',
+          '5. Languages (Sprachen): list each language with CEFR level (A1–C2) or equivalent (e.g. "Deutsch: B2", "Englisch: Muttersprache")',
+          '6. Hobbies (Hobbys/Interessen): optional — include only if genuinely interesting or relevant to the role',
+        ],
+      },
+      {
+        heading: 'Work experience: what German employers look for',
+        body: 'Each role should include specific, quantified achievements — not just job descriptions:',
+        list: [
+          'Use action verbs in German (or English for international applications): entwickelt, implementiert, geleitet, verantwortlich für',
+          'Quantify where possible: "Reduced server response time by 40%" beats "Improved performance"',
+          'List employment dates precisely: "Jan 2021 – Mar 2023" not "2021–2023"',
+          'Explain gaps: a note like "Sabbatical/travel" or "Visa processing" is better than a silent gap',
+          'Include part-time roles, internships (Praktika), and Werkstudent positions — German employers value all work experience',
+        ],
+        warning: 'German employers are more conservative about employment gaps than employers in other countries. If you have a gap of more than 3 months, add a brief explanation — even just "Job search" or "Language study".',
+      },
+      {
+        heading: 'Education',
+        body: 'German employers care about educational background more than many other countries. Include:',
+        list: [
+          'Your highest degree: full name of the degree, institution, country, start and end dates',
+          'Grade/GPA: include if it\'s strong (above 2.5 on the German 1–5 scale, or equivalent). German system: 1 = excellent (sehr gut), 5 = fail (ungenügend)',
+          'Thesis topic: for bachelor\'s and master\'s, add a one-line description if relevant to the role',
+          'For non-German degrees: add "(equivalent to German Master/Bachelor)" in brackets if you have a Statement of Comparability',
+          'School education: only include Abitur (German A-levels) equivalent — omit primary and middle school',
+        ],
+      },
+      {
+        heading: 'Language skills',
+        body: 'List all languages with CEFR levels — this is taken seriously in Germany:',
+        list: [
+          'Deutsch (German): always list your actual level — A1, A2, B1, B2, C1, C2, or Muttersprache (native)',
+          'Englisch: most professional roles require B2 minimum — "business fluent" is an acceptable description',
+          'Other languages: even basic skills (A2) are worth listing in a globalised workforce',
+          'Certificates: mention Goethe-Institut, TELC, DSH, or TestDaF levels if you have them — they carry weight',
+        ],
+        tip: 'Do not overstate your German level. HR managers often screen in German, and being caught out in an interview is more damaging than listing a lower level on your CV.',
+      },
+      {
+        heading: 'Common mistakes international applicants make',
+        body: 'Avoid these errors that immediately flag a CV as non-German:',
+        list: [
+          'Missing photo: always include a professional headshot',
+          'Wrong date format: use DD.MM.YYYY or MM/YYYY for German applications',
+          'Including "References available upon request": never included in German CVs',
+          'One-page rule from the US: German CVs can be 2 pages — cramming experience into 1 page looks amateurish',
+          'Listing "Objective" or "Summary" at the top: optional and rarely used in Germany',
+          'Using a non-standard format (infographic CVs, excessive colour): conservative industries (finance, law, consulting) prefer plain formats',
+        ],
+      },
+    ],
+    relatedTaskId: 'job-search',
+    relatedGuides: ['chancenkarte-germany', 'residence-permit-germany'],
+  },
+
+  'driving-licence-germany': {
+    title: 'Driving Licence Conversion in Germany 2025: Country-by-Country Guide',
+    metaTitle: 'Convert Driving Licence to German Führerschein 2025 — Do You Need a Test?',
+    metaDescription:
+      'How to convert your foreign driving licence to a German Führerschein. Which countries need a test, which can convert directly, documents required, timeline, and cost.',
+    category: 'Transport',
+    readingTime: '6 min',
+    lastUpdated: 'January 2025',
+    intro:
+      'If you hold a non-EU/EEA driving licence, it is valid in Germany for 6 months from the date of your Anmeldung (address registration). After that, you must either convert it to a German Führerschein or pass German driving tests. Whether you need tests depends entirely on your country of issue — some countries have bilateral agreements with Germany allowing direct exchange; others require the full theory and practical exam.',
+    sections: [
+      {
+        heading: 'EU/EEA licences: no conversion needed',
+        body: 'If you hold a driving licence from an EU or EEA country (plus Switzerland and the UK), it remains valid in Germany indefinitely. You do not need to convert it. If it expires, you renew it at your local Führerscheinstelle.',
+        list: [
+          'EU/EEA countries: licence valid with no conversion required',
+          'UK: licence valid after Brexit (reciprocal agreement in place)',
+          'Switzerland: no conversion needed',
+        ],
+      },
+      {
+        heading: 'Non-EU countries: do you need a test?',
+        body: 'Germany has bilateral agreements with several non-EU countries allowing licence exchange without a theory or practical exam. Check your country below:',
+        list: [
+          'Direct exchange (no test): Japan, South Korea, Taiwan, Singapore, New Zealand, Zimbabwe, Namibia, South Africa, Andorra, Monaco, San Marino, and certain US states and Canadian provinces',
+          'Direct exchange — USA: varies by state. Exchange possible from: Alabama, Colorado, Delaware, Iowa, Illinois, Kansas, Kentucky, Louisiana, Michigan, New Mexico, Ohio, Oklahoma, Pennsylvania, South Carolina, South Dakota, Texas, Utah, Wyoming. All other US states require a practical driving test.',
+          'Partial exchange (practical only, no theory test): Australia, Canada (some provinces), Israel, Bosnia-Herzegovina, Serbia',
+          'Full test required (theory + practical): India, China, Nigeria, Pakistan, Turkey, Philippines, Brazil, and most other countries',
+        ],
+        warning: 'The 6-month window starts from your Anmeldung date — not your arrival date. If you delay your address registration, you technically extend the window, but this is not recommended.',
+      },
+      {
+        heading: 'Documents you need',
+        body: 'Standard document set for licence conversion or exchange at the Führerscheinstelle:',
+        list: [
+          'Valid foreign driving licence (original)',
+          'Official translation by a certified translator (vereidigter Übersetzer) or ADAC — most offices require this for non-Latin-script licences',
+          'Passport and valid residence permit (or Fiktionsbescheinigung)',
+          'Meldebescheinigung',
+          'Biometric passport photo (35×45mm)',
+          'Eye test certificate (Sehtest): from any optician — costs ~€6–10',
+          'First aid certificate (Erste-Hilfe-Kurs): valid if taken within the last 12 years (varies by state) — one-day course, ~€35',
+          'Completed application form (download from your local Führerscheinstelle website)',
+        ],
+        tip: 'ADAC (the German automobile club) offers translation and legalisation services for foreign licences and is widely accepted by Führerscheinstellen. Their service costs ~€60–100.',
+      },
+      {
+        heading: 'The process: step by step',
+        body: 'Whether you are exchanging directly or taking tests, the process starts the same way:',
+        list: [
+          '1. Get your foreign licence translated by a certified translator or ADAC',
+          '2. Complete the eye test (Sehtest) at any optician — takes 5 minutes',
+          '3. Complete a first aid course (Erste-Hilfe-Kurs) if your certificate is expired or you don\'t have one — one-day course available at German Red Cross and ADAC',
+          '4. Book an appointment at your local Führerscheinstelle (Straßenverkehrsamt) — bring all documents',
+          '5. If direct exchange: pay the fee (€35–60) and your German licence is issued within 2–4 weeks',
+          '6. If tests required: enrol in a German driving school (Fahrschule) for theory preparation and practical lessons, then book exams at TÜV or DEKRA',
+        ],
+      },
+      {
+        heading: 'Cost and timeline',
+        body: 'The total cost varies widely depending on whether you need tests:',
+        list: [
+          'Direct exchange (no tests): €35–60 conversion fee + €60–100 ADAC translation = €95–160 total. Timeline: 3–6 weeks.',
+          'Theory test only: add €25–35 for the TÜV/DEKRA theory exam + driving school fees (€300–500 for study materials and theory lessons)',
+          'Full test (theory + practical): total cost typically €1,500–2,500 including driving school lessons (German Fahrschule average: 15–20 practical lessons at €50–80/each)',
+          'Processing time with full tests: 3–6 months depending on how quickly you pass',
+        ],
+        warning: 'Do not drive in Germany with an expired or unconverted licence. Fines start at €40 for driving without a valid licence and can include points on your record or vehicle impoundment for more serious violations.',
+      },
+    ],
+    relatedTaskId: 'drivers-license',
+    relatedGuides: ['anmeldung-germany', 'chancenkarte-germany'],
+  },
+
+  'tax-return-germany': {
+    title: 'German Tax Return (Steuererklärung) 2025: How to File and Get Your Refund',
+    metaTitle: 'German Tax Return 2025: How to File Steuererklärung & Get a Refund',
+    metaDescription:
+      'How to file a German tax return (Steuererklärung) in 2025. Who must file, how to use ELSTER, Taxfix, and Wundertax — and how to claim the average €1,000+ refund.',
+    category: 'Employment',
+    readingTime: '7 min',
+    lastUpdated: 'January 2025',
+    intro:
+      'Many international workers and students in Germany are entitled to a significant tax refund — the average is €1,072. Unlike some countries, Germany does not automatically send you a refund; you must file a Steuererklärung (tax return) to claim it. The deadline is 31 July of the following year, and even if you are not legally required to file, filing voluntarily almost always results in money back.',
+    sections: [
+      {
+        heading: 'Who must file a tax return in Germany?',
+        body: 'You are legally required to file if any of the following apply:',
+        list: [
+          'You have income from multiple employers in the same year (e.g., changed jobs)',
+          'You have additional income not subject to withholding (freelance, rental income)',
+          'You claim certain tax allowances (e.g., home office, exceptional expenses)',
+          'You receive wage replacement benefits (Elterngeld, Kurzarbeitergeld, Arbeitslosengeld) above €410/year',
+          'Your spouse is taxed under a combined tax class and you were both employed',
+        ],
+        tip: 'Even if you are not required to file, doing so almost always results in a refund — especially if you arrived mid-year, had work-related expenses, or paid into a pension.',
+      },
+      {
+        heading: 'Why do internationals often get large refunds?',
+        body: 'Several factors mean newcomers typically overpay tax throughout the year:',
+        list: [
+          'Partial-year employment: if you arrived in June, you paid tax on an annualised salary, but your total income was much lower',
+          'Tax-free allowances (Grundfreibetrag) of €11,604 (2024) were not fully offset against withholding',
+          'Work-related expenses (Werbungskosten): home office, professional memberships, language courses, relocation costs can be deducted',
+          'Double taxation credits if you paid tax in your home country for part of the year',
+          'Standard work expense flat rate (€1,230/year) is automatically applied even without receipts',
+        ],
+      },
+      {
+        heading: 'The deadline',
+        body: 'The filing deadline for the tax year is 31 July of the following year:',
+        list: [
+          '2024 tax year → deadline: 31 July 2025',
+          '2025 tax year → deadline: 31 July 2026',
+          'If you use a Steuerberater (tax advisor), the deadline extends to 28 February of the year after',
+          'Voluntary filings (when not legally required) can be submitted up to 4 years retroactively',
+        ],
+        warning: 'Missing the mandatory filing deadline can result in a late filing penalty (Verspätungszuschlag) — typically 0.25% of the tax due per month, minimum €25/month.',
+      },
+      {
+        heading: 'ELSTER — the official portal (free but complex)',
+        body: 'ELSTER (Elektronische Steuererklärung) is the official German government portal for tax returns. It is free but requires registration (takes 2–3 weeks for the activation letter to arrive by post).',
+        list: [
+          'Register at elster.de and choose "Privatperson" account type',
+          'Submit your Steuer-ID, date of birth, and address to receive an activation code by post',
+          'Use ELSTER Online or the ElsterFormular software to fill in your return',
+          'ELSTER supports all tax forms but has a steep learning curve for first-time filers',
+        ],
+      },
+      {
+        heading: 'Taxfix and Wundertax — simpler English-friendly alternatives',
+        body: 'For most employees (no rental income, no self-employment), Taxfix and Wundertax offer a guided interview-style process in English — often the better choice for newcomers:',
+        list: [
+          'Taxfix: English-language app, step-by-step questions, flat fee ~€39.99, files directly with ELSTER',
+          'Wundertax: web-based, German/English, ~€34.99, shows estimated refund before you pay',
+          'SteuerGo: ~€29.99, simplified interface, good for straightforward employment income',
+          'WISO Steuer: most powerful, ~€29.99/year, used by ~3 million Germans, complex cases',
+        ],
+        tip: 'Taxfix is the most popular among internationals for good reason — the English interview format explains every question clearly. If your situation is simple (1 employer, no investments), it takes under 20 minutes.',
+      },
+      {
+        heading: 'What can you deduct?',
+        body: 'Common deductions that increase your refund:',
+        list: [
+          'Werbungskosten (work expenses): up to €1,230/year flat rate automatically applied; above that, you need receipts',
+          'Home office (Homeoffice-Pauschale): €6/day working from home, up to €1,260/year from 2023',
+          'Relocation costs (Umzugskosten): if you moved to Germany for work',
+          'German language course fees: if required for your job',
+          'Professional memberships, subscriptions, and tools used for work',
+          'Commuting allowance (Entfernungspauschale): €0.30/km for the one-way distance to your workplace',
+        ],
+      },
+      {
+        heading: 'How long does a refund take?',
+        body: 'After filing, the Finanzamt (tax office) processes your return and issues a Steuerbescheid (tax assessment notice):',
+        list: [
+          'Standard processing time: 4–12 weeks depending on the Finanzamt and time of year',
+          'Refund is transferred directly to your German bank account',
+          'If the assessment shows additional tax due, you have 4 weeks to pay',
+          'You can object (Einspruch) to the assessment within 1 month if you disagree',
+        ],
+      },
+    ],
+    providers: [
+      { name: 'Taxfix', url: 'https://www.taxfix.de', note: 'English-language, guided interview, ~€39.99 flat fee — best for internationals' },
+      { name: 'Wundertax', url: 'https://www.wundertax.de', note: 'Shows estimated refund before paying, ~€34.99, web-based' },
+      { name: 'ELSTER (free)', url: 'https://www.elster.de', note: 'Free official portal — complex, German-only, requires postal activation' },
+    ],
+    relatedTaskId: 'elster',
+    relatedGuides: ['anmeldung-germany', 'bank-account-germany'],
+  },
 }
 
 export async function generateStaticParams() {
@@ -336,8 +766,34 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     .filter(([s]) => (guide.relatedGuides ?? []).includes(s))
     .map(([s, g]) => ({ slug: s, title: g.title, category: g.category }))
 
+  const BASE_URL = 'https://landing-de-brown.vercel.app'
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: guide.title,
+    description: guide.metaDescription,
+    datePublished: '2025-01-01',
+    dateModified: '2025-01-15',
+    publisher: { '@type': 'Organization', name: 'Landing.de', url: BASE_URL },
+    author: { '@type': 'Organization', name: 'Landing.de' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${BASE_URL}/guide/${slug}` },
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Landing.de', item: BASE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: `${BASE_URL}/guide` },
+      { '@type': 'ListItem', position: 3, name: guide.title, item: `${BASE_URL}/guide/${slug}` },
+    ],
+  }
+
   return (
     <div className="min-h-screen bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="mx-auto max-w-2xl px-4 pb-20 pt-10">
         <Link href="/" className="mb-6 inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900">
           ← Landing.de
@@ -466,7 +922,17 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           </section>
         )}
 
-        <p className="mt-8 text-center text-xs text-gray-400">
+        <div className="mt-8 border-t pt-6">
+          <p className="mb-3 text-center text-xs font-medium text-gray-400">Country-specific guides</p>
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-gray-400">
+            {['india','china','nigeria','usa','turkey','brazil','philippines','ukraine'].map((c) => (
+              <Link key={c} href={`/from/${c}`} className="capitalize underline hover:text-gray-600">
+                From {c.charAt(0).toUpperCase() + c.slice(1)}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <p className="mt-4 text-center text-xs text-gray-400">
           <Link href="/impressum" className="underline">Impressum</Link>
           {' · '}
           <Link href="/datenschutz" className="underline">Datenschutz</Link>

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, ExternalLink, Clock, FileText, Lightbulb } from 'lucide-react'
+import { ArrowLeft, ExternalLink, Clock, FileText, Lightbulb, BookOpen } from 'lucide-react'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
@@ -13,6 +13,16 @@ import tasksData from '@/data/tasks/common.json'
 import type { Task, TimelineState } from '@/lib/types'
 
 const allTasks = tasksData as unknown as Task[]
+
+const TASK_GUIDE_MAP: Record<string, { slug: string; label: string }> = {
+  'anmeldung': { slug: 'anmeldung-germany', label: 'Full Anmeldung guide →' },
+  'bank-account': { slug: 'bank-account-germany', label: 'Best German bank accounts guide →' },
+  'health-insurance': { slug: 'health-insurance-germany', label: 'GKV vs PKV health insurance guide →' },
+  'residence-permit': { slug: 'residence-permit-germany', label: 'Residence permit application guide →' },
+  'blocked-account': { slug: 'blocked-account-germany', label: 'Blocked account (Sperrkonto) guide →' },
+  'elster': { slug: 'tax-return-germany', label: 'German tax return guide →' },
+  'tax-id': { slug: 'tax-return-germany', label: 'German tax guide →' },
+}
 
 const PRIORITY_STYLES: Record<string, string> = {
   critical: 'bg-red-100 text-red-700',
@@ -266,6 +276,22 @@ export default function TaskDetail() {
               })}
             </ul>
           </section>
+        )}
+
+        {/* Related guide */}
+        {TASK_GUIDE_MAP[task.id] && (
+          <div className="mt-8 rounded-xl border border-gray-100 bg-gray-50 p-4">
+            <div className="flex items-center gap-2 mb-1">
+              <BookOpen className="h-4 w-4 text-gray-400" />
+              <span className="text-xs font-semibold uppercase tracking-widest text-gray-400">Deep dive</span>
+            </div>
+            <Link
+              href={`/guide/${TASK_GUIDE_MAP[task.id].slug}`}
+              className="text-sm font-medium text-black underline underline-offset-2 hover:no-underline"
+            >
+              {TASK_GUIDE_MAP[task.id].label}
+            </Link>
+          </div>
         )}
 
         <Separator className="my-8" />
