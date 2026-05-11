@@ -15,10 +15,15 @@ const GUIDE_SLUGS = [
   'chancenkarte-germany',
   'german-cv-format',
   'driving-licence-germany',
+  'housing-germany',
+  'freelance-germany',
+  'pension-germany',
+  'internet-germany',
 ]
 
 const FROM_COUNTRIES = [
   'india', 'china', 'nigeria', 'usa', 'turkey', 'brazil', 'philippines', 'ukraine',
+  'south-korea', 'vietnam', 'pakistan', 'morocco',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useParams, useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { CheckCircle2, Share2, Mail, ChevronDown, ChevronUp, Zap } from 'lucide-react'
+import { CheckCircle2, Share2, Mail, ChevronDown, ChevronUp, Zap, CalendarDays, Eye, EyeOff } from 'lucide-react'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Progress } from '@/components/ui/progress'
 import { Badge } from '@/components/ui/badge'
@@ -113,6 +113,7 @@ export default function TimelineView() {
   const [copied, setCopied] = useState(false)
   const [activeCategory, setActiveCategory] = useState<'all' | TaskCategory>('all')
   const [viewMode, setViewMode] = useState<'category' | 'deadline'>('category')
+  const [hideCompleted, setHideCompleted] = useState(false)
   const [email, setEmail] = useState('')
   const [emailStatus, setEmailStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
   const confettiFired = useRef(false)
@@ -176,6 +177,48 @@ export default function TimelineView() {
     }
   }
 
+  function handleCalendarExport() {
+    if (!profile) return
+    const arrival = new Date(profile.arrivalDate)
+    const events = allFilteredTasks
+      .filter((t) => t.deadlineDaysFromArrival !== null)
+      .map((t) => {
+        const due = new Date(arrival)
+        due.setDate(due.getDate() + t.deadlineDaysFromArrival!)
+        const next = new Date(due)
+        next.setDate(next.getDate() + 1)
+        const fmt = (d: Date) => d.toISOString().slice(0, 10).replace(/-/g, '')
+        const desc = t.description.replace(/[\\;,]/g, '\\$&').replace(/\n/g, '\\n').slice(0, 200)
+        return [
+          'BEGIN:VEVENT',
+          `UID:${t.id}@landing-de`,
+          `DTSTART;VALUE=DATE:${fmt(due)}`,
+          `DTEND;VALUE=DATE:${fmt(next)}`,
+          `SUMMARY:${t.title}`,
+          `DESCRIPTION:${desc}`,
+          'CATEGORIES:Germany Checklist',
+          'END:VEVENT',
+        ].join('\r\n')
+      })
+    const ics = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Landing.de//Germany Checklist//EN',
+      'CALSCALE:GREGORIAN',
+      'METHOD:PUBLISH',
+      'X-WR-CALNAME:Germany Checklist — Landing.de',
+      ...events,
+      'END:VCALENDAR',
+    ].join('\r\n')
+    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'germany-checklist.ics'
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
   if (!profile || !timelineState) {
     return <div className="flex min-h-screen items-center justify-center text-gray-400">Loading…</div>
   }
@@ -208,6 +251,9 @@ export default function TimelineView() {
       !timelineState.completedTaskIds.includes(t.id) &&
       (t.priority === 'critical' || t.priority === 'high'),
   )
+  const displayTasks = hideCompleted
+    ? tasks.filter((t) => !timelineState.completedTaskIds.includes(t.id))
+    : tasks
   const progress = allFilteredTasks.length > 0 ? (completedCount / allFilteredTasks.length) * 100 : 0
   const allDone = allFilteredTasks.length > 0 && completedCount === allFilteredTasks.length
 
@@ -230,13 +276,29 @@ export default function TimelineView() {
                 {new Date(profile.arrivalDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
               </p>
             </div>
-            <button
-              onClick={handleShare}
-              className="flex shrink-0 items-center gap-1.5 rounded-lg border border-gray-200 px-3 py-1.5 text-sm text-gray-600 transition-colors hover:bg-gray-50"
-            >
-              <Share2 className="h-3.5 w-3.5" />
-              {copied ? 'Copied!' : 'Share'}
-            </button>
+            <div className="flex shrink-0 items-center gap-1.5">
+              <button
+                title={hideCompleted ? 'Show completed tasks' : 'Hide completed tasks'}
+                onClick={() => setHideCompleted((h) => !h)}
+                className={['rounded-lg border p-1.5 transition-colors', hideCompleted ? 'border-black bg-black text-white' : 'border-gray-200 text-gray-500 hover:bg-gray-50'].join(' ')}
+              >
+                {hideCompleted ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
+              </button>
+              <button
+                title="Export deadlines to calendar"
+                onClick={handleCalendarExport}
+                className="rounded-lg border border-gray-200 p-1.5 text-gray-500 transition-colors hover:bg-gray-50"
+              >
+                <CalendarDays className="h-3.5 w-3.5" />
+              </button>
+              <button
+                onClick={handleShare}
+                className="flex items-center gap-1.5 rounded-lg border border-gray-200 px-3 py-1.5 text-sm text-gray-600 transition-colors hover:bg-gray-50"
+              >
+                <Share2 className="h-3.5 w-3.5" />
+                {copied ? 'Copied!' : 'Share'}
+              </button>
+            </div>
           </div>
 
           <div className="mt-3">
@@ -325,6 +387,9 @@ export default function TimelineView() {
           DEADLINE_GROUPS.map((group) => {
             const groupTasks = allFilteredTasks.filter((t) => getDeadlineGroup(t) === group.key)
             if (groupTasks.length === 0) return null
+            const visibleGroupTasks = hideCompleted
+              ? groupTasks.filter((t) => !timelineState.completedTaskIds.includes(t.id))
+              : groupTasks
             const doneInGroup = groupTasks.filter((t) => timelineState.completedTaskIds.includes(t.id)).length
             return (
               <div key={group.key}>
@@ -335,8 +400,11 @@ export default function TimelineView() {
                   </div>
                   <span className="text-xs text-gray-400">{doneInGroup}/{groupTasks.length} done</span>
                 </div>
+                {visibleGroupTasks.length === 0 && (
+                  <p className="py-2 text-xs text-gray-400">All done in this group ✓</p>
+                )}
                 <div className="space-y-2">
-                  {groupTasks.map((task) => {
+                  {visibleGroupTasks.map((task) => {
                     const isCompleted = timelineState.completedTaskIds.includes(task.id)
                     const chip = task.deadlineDaysFromArrival !== null
                       ? deadlineChip(profile.arrivalDate, task.deadlineDaysFromArrival)
@@ -364,15 +432,17 @@ export default function TimelineView() {
               </div>
             )
           })
-        ) : tasks.length === 0 ? (
+        ) : displayTasks.length === 0 ? (
           <div className="rounded-xl border bg-white p-8 text-center">
-            <p className="font-medium text-gray-700">No tasks in this category</p>
+            <p className="font-medium text-gray-700">
+              {hideCompleted && tasks.length > 0 ? 'All tasks in this category are done ✓' : 'No tasks in this category'}
+            </p>
             <button onClick={() => setActiveCategory('all')} className="mt-2 text-sm text-black underline">
               Show all tasks
             </button>
           </div>
         ) : (
-          tasks.map((task, index) => {
+          displayTasks.map((task, index) => {
             const isCompleted = timelineState.completedTaskIds.includes(task.id)
             const chip = task.deadlineDaysFromArrival !== null
               ? deadlineChip(profile.arrivalDate, task.deadlineDaysFromArrival)
@@ -427,6 +497,29 @@ export default function TimelineView() {
             <p className="font-semibold text-green-800">You're all set!</p>
             <p className="mt-1 text-sm text-green-700">All tasks for your first 90 days are done.</p>
           </div>
+        )}
+
+        {/* Budget overview */}
+        {allFilteredTasks.some((t) => t.costEstimate && !t.costEstimate.toLowerCase().startsWith('free')) && (
+          <details className="group rounded-xl border bg-white">
+            <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3">
+              <span className="text-sm font-medium text-gray-900">Estimated setup costs</span>
+              <ChevronDown className="h-4 w-4 text-gray-400 transition-transform group-open:rotate-180" />
+            </summary>
+            <div className="px-4 pb-4 pt-0">
+              <div className="space-y-2">
+                {allFilteredTasks
+                  .filter((t) => t.costEstimate && !t.costEstimate.toLowerCase().startsWith('free'))
+                  .map((t) => (
+                    <div key={t.id} className="flex items-start justify-between gap-3 text-xs">
+                      <span className="min-w-0 flex-1 truncate text-gray-600">{t.title}</span>
+                      <span className="shrink-0 font-medium text-gray-900">{t.costEstimate!.split('·')[0].trim()}</span>
+                    </div>
+                  ))}
+              </div>
+              <p className="mt-3 text-xs text-gray-400">One-time and monthly costs combined. Actual amounts vary.</p>
+            </div>
+          </details>
         )}
 
         {/* Email reminder */}

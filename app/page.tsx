@@ -244,6 +244,10 @@ export default function HomePage() {
           <Link href="/from/brazil" className="underline hover:text-gray-600">Brazil</Link>
           <Link href="/from/philippines" className="underline hover:text-gray-600">Philippines</Link>
           <Link href="/from/ukraine" className="underline hover:text-gray-600">Ukraine</Link>
+          <Link href="/from/south-korea" className="underline hover:text-gray-600">South Korea</Link>
+          <Link href="/from/vietnam" className="underline hover:text-gray-600">Vietnam</Link>
+          <Link href="/from/pakistan" className="underline hover:text-gray-600">Pakistan</Link>
+          <Link href="/from/morocco" className="underline hover:text-gray-600">Morocco</Link>
         </div>
         <div className="mt-3 flex justify-center gap-4">
           <Link href="/impressum" className="underline hover:text-gray-600">Impressum</Link>

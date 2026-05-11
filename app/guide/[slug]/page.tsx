@@ -741,6 +741,263 @@ const GUIDES: Record<string, Guide> = {
     relatedTaskId: 'elster',
     relatedGuides: ['anmeldung-germany', 'bank-account-germany'],
   },
+
+  'housing-germany': {
+    title: 'Finding a Flat in Germany (2025): Complete Guide for Newcomers',
+    metaTitle: 'How to Find a Flat in Germany 2025 — Renting Guide for Internationals',
+    metaDescription: 'How to find an apartment in Germany as a foreigner. WG-Gesucht vs ImmobilienScout24, documents landlords require, Schufa report, and tenant rights.',
+    category: 'Housing',
+    readingTime: '8 min',
+    lastUpdated: 'January 2025',
+    intro: 'Finding a flat in Germany is one of the hardest parts of relocating — especially in Berlin, Munich, and Frankfurt where vacancy rates are below 1%. Landlords receive dozens of applications per flat, so having a complete, professional application dossier ready before you start viewing is essential.',
+    sections: [
+      {
+        heading: 'Where to Search',
+        body: 'The two dominant portals are ImmobilienScout24 and WG-Gesucht. ImmobilienScout24 lists entire apartments; WG-Gesucht specialises in flatshares (WGs). For temporary housing while you search, try Wunderflats or Homelike for furnished apartments.',
+        list: [
+          'ImmobilienScout24 — largest database of entire flats',
+          'WG-Gesucht — best for shared apartments (WG/Wohngemeinschaft)',
+          'Wunderflats / Homelike — furnished, short-term for the first 1–3 months',
+          'Facebook groups: "Wohnungen in [City]" — often cheaper, no platform fee',
+        ],
+      },
+      {
+        heading: 'The Application Dossier',
+        body: 'German landlords expect a complete self-disclosure packet with every inquiry. Missing documents means immediate rejection. Prepare this before you start applying.',
+        list: [
+          'Passport copy',
+          'Last 3 payslips or proof of scholarship/funding',
+          'Employment contract or university enrolment letter',
+          'Schufa credit report (order free via Schufa — takes 1 week by post)',
+          'Last 3 months bank statements',
+          'Landlord reference letter from your previous landlord if available',
+        ],
+        tip: 'Create a PDF dossier with all documents ready to send within minutes of seeing a listing — speed matters more than anything else.',
+      },
+      {
+        heading: 'The Schufa Credit Report',
+        body: "Schufa is Germany's credit bureau. Most landlords require a clean Schufa report before signing a lease. As a newcomer you likely have no German credit history — this is fine and expected.",
+        list: [
+          'Free annual report: request at schufa.de (Datenkopie nach Art. 15 DSGVO) — takes 1–2 weeks by post',
+          'Instant report: via Bonify app (free) or IdentityCheck (~€30) — instant PDF',
+          'MEL Finance and other fintechs also offer instant Schufa checks',
+        ],
+        warning: 'Never apply for credit (loans, credit cards) in your first weeks in Germany — each credit application is recorded and temporarily lowers your score.',
+      },
+      {
+        heading: 'Typical Costs',
+        body: 'Renting in Germany involves upfront costs that can add up quickly.',
+        list: [
+          'Cold rent (Kaltmiete) — the base rent, excludes utilities',
+          'Warm rent (Warmmiete) — includes utilities (Nebenkosten), typically €100–200/month more',
+          'Security deposit (Kaution) — maximum 3 months cold rent, paid upfront',
+          'No broker fee (Bestellerprinzip) — since 2015, landlords pay the agent, not tenants',
+        ],
+      },
+      {
+        heading: 'Tenant Rights',
+        body: 'Germany has some of the strongest tenant protection laws in Europe. Once you sign a lease, you are well protected.',
+        list: [
+          'Rent increases limited by the Mietspiegel (rent index) in regulated cities',
+          'Minimum 3 months notice for landlord to terminate — usually much longer in practice',
+          'Deposit must be returned within 3–6 months of moving out (minus documented damages)',
+          'Renters insurance (Hausratversicherung) is strongly recommended — protects your belongings',
+        ],
+      },
+    ],
+    providers: [
+      { name: 'ImmobilienScout24', url: 'https://www.immobilienscout24.de', note: 'Largest German property portal for entire apartments' },
+      { name: 'WG-Gesucht', url: 'https://www.wg-gesucht.de', note: 'Best flatshare (WG) listings — essential for students' },
+      { name: 'Wunderflats', url: 'https://wunderflats.com/en', note: 'Furnished short-term flats — ideal for first 1–3 months' },
+    ],
+    relatedTaskId: 'anmeldung',
+    relatedGuides: ['anmeldung-germany', 'bank-account-germany'],
+  },
+
+  'freelance-germany': {
+    title: 'How to Become a Freelancer in Germany (2025): Gewerbe, Tax, Insurance',
+    metaTitle: 'Freelancing in Germany 2025 — Register Gewerbe, Tax ID, Health Insurance',
+    metaDescription: 'How to register as a freelancer (Freiberufler) or self-employed (Gewerbetreibender) in Germany. Gewerbe registration, tax number, Kleinunternehmer rule, and health insurance.',
+    category: 'Work & Finance',
+    readingTime: '9 min',
+    lastUpdated: 'January 2025',
+    intro: 'Germany distinguishes between liberal professions (Freiberufler — IT contractors, designers, translators, journalists) and tradespeople (Gewerbetreibende). The registration process, tax treatment, and obligations differ. This guide covers both paths and the key decisions you need to make.',
+    sections: [
+      {
+        heading: 'Freiberufler vs. Gewerbetreibender',
+        body: 'The classification determines your registration requirement and tax obligations.',
+        list: [
+          'Freiberufler (liberal professions): software developers, graphic designers, translators, journalists, consultants — no Gewerbe registration, no trade tax (Gewerbesteuer)',
+          'Gewerbetreibender (tradespeople): e-commerce, physical products, some service businesses — must register a Gewerbe at the Gewerbeamt',
+          'Uncertain? Ask a Steuerberater (tax advisor) — misclassification can result in back taxes',
+        ],
+      },
+      {
+        heading: 'Step 1: Register Your Business',
+        body: 'Freiberufler register directly with the Finanzamt (tax office) via the Fragebogen zur steuerlichen Erfassung. Gewerbetreibende must first register at the Gewerbeamt.',
+        list: [
+          'Freiberufler: complete the "Fragebogen zur steuerlichen Erfassung" on ELSTER (elster.de) or paper form — submit to your local Finanzamt',
+          'Gewerbetreibender: register at the Gewerbeamt (€20–65 fee) then submit the tax questionnaire to the Finanzamt',
+          'You receive a Steuernummer (tax number) within 2–8 weeks — needed on every invoice',
+        ],
+        tip: 'Apply for your Steuernummer as soon as you have your Anmeldung — you can start working immediately and invoice clients with "Steuernummer beantragt" (applied for).',
+      },
+      {
+        heading: 'The Kleinunternehmer Rule',
+        body: 'If your annual turnover is below €22,000, you can opt for the Kleinunternehmerregelung — you do not charge VAT on invoices and do not file VAT returns. This simplifies accounting significantly for low-income freelancers.',
+        list: [
+          'Threshold: €22,000 in first year, €50,000 projected in following year',
+          'Benefit: no VAT on invoices, no quarterly VAT returns',
+          'Downside: cannot reclaim input VAT on business expenses',
+          'Choose this if: you have mostly B2C clients or low startup costs',
+        ],
+        warning: 'Once you exceed €22,000, you must switch to regular VAT taxation and retroactively charge VAT. Track revenue carefully.',
+      },
+      {
+        heading: 'Health Insurance for Freelancers',
+        body: 'Self-employed people must arrange their own health insurance — it is not automatic. This is often the largest cost of freelancing in Germany.',
+        list: [
+          'GKV (statutory): available if you were previously GKV-insured; income-based premium ~€200–900/month depending on earnings',
+          'PKV (private): available if healthy and earning well; can be cheaper than GKV for young healthy freelancers (~€200–400/month)',
+          'Artist/journalist? Apply to the Künstlersozialkasse (KSK) — the state subsidises 50% of your GKV/PKV premium',
+          'Get quotes from several PKV insurers (Ottonova, AXA, Allianz) before deciding',
+        ],
+      },
+      {
+        heading: 'Invoicing Requirements',
+        body: 'German invoices (Rechnungen) must include specific fields to be legally valid.',
+        list: [
+          'Your full name and address',
+          'Client full name and address',
+          'Your Steuernummer or Umsatzsteuer-ID (VAT ID)',
+          'Sequential invoice number',
+          'Date of service and invoice date',
+          'Clear description of services',
+          'Net amount, VAT rate and amount (or Kleinunternehmer note), gross total',
+          'Your German IBAN for payment',
+        ],
+      },
+    ],
+    relatedTaskId: 'tax-id',
+    relatedGuides: ['tax-return-germany', 'bank-account-germany'],
+  },
+
+  'pension-germany': {
+    title: 'German Pension for Expats (2025): What You Need to Know',
+    metaTitle: 'German Pension System for Expats 2025 — Contributions, Refunds, Totalization',
+    metaDescription: 'How the German pension system (Deutsche Rentenversicherung) works for internationals. Contributions, pension refund when leaving, totalization agreements, and what to expect.',
+    category: 'Finance',
+    readingTime: '7 min',
+    lastUpdated: 'January 2025',
+    intro: 'Every employee in Germany contributes 9.3% of their gross salary to the Deutsche Rentenversicherung (DRV) — matched by 9.3% from the employer. If you leave Germany, you may be able to get your contributions refunded, or transfer entitlements to your home country. This guide explains what happens to your pension contributions as an expat.',
+    sections: [
+      {
+        heading: 'How Contributions Work',
+        body: 'German pension contributions are automatic and appear on your payslip as "Rentenversicherung." Both you and your employer each pay 9.3% of gross salary (18.6% total).',
+        list: [
+          'Contribution rate: 18.6% of gross salary total (9.3% employee + 9.3% employer)',
+          'Contribution ceiling (2024): €7,550/month in western Germany',
+          'Contributions are tracked individually by your Rentenversicherungsnummer',
+          'You receive your pension number on a green card within weeks of starting employment — keep it safe',
+        ],
+        tip: 'Your Rentenversicherungsnummer is printed on your Sozialversicherungsausweis and on your payslips. Keep it for life — it never changes.',
+      },
+      {
+        heading: 'Will I Get a Pension?',
+        body: 'To receive a German state pension, you need at least 5 qualifying years (Mindestversicherungszeit). Under EU rules and bilateral agreements, contribution years from other countries can count toward this threshold.',
+        list: [
+          'Minimum qualifying period: 5 years of contributions',
+          'EU/EEA citizens: years in any EU country count (totalization)',
+          'Non-EU: depends on whether your country has a social security totalization agreement with Germany (USA, Canada, Australia — check DRV website)',
+          'If you do not reach 5 years and no agreement applies, you can apply for a refund when you leave',
+        ],
+      },
+      {
+        heading: 'Getting a Pension Refund When Leaving Germany',
+        body: "If you leave Germany permanently and your home country has no totalization agreement, you can apply for a refund of your own contributions (not the employer's share) after 24 months of leaving the EU.",
+        list: [
+          'Eligible: non-EU citizens whose home country has no totalization agreement with Germany',
+          'Waiting period: 24 months after leaving Germany (and the EU)',
+          'You get back: only your own contributions, not the employer 9.3%',
+          'Tax: the refund is taxed at a 15% flat rate in Germany (withheld at source)',
+          'Apply via: Deutsche Rentenversicherung (DRV) — application can be made online at eservice-drv.de',
+        ],
+        warning: 'EU citizens cannot get a pension refund — contributions are locked in and transferable under EU rules instead.',
+      },
+      {
+        heading: 'Totalization Agreements',
+        body: 'Germany has social security agreements (Sozialversicherungsabkommen) with many countries. These prevent double contributions and allow years to be combined.',
+        list: [
+          'EU/EEA + Switzerland: automatic, no application needed',
+          'USA, Canada, Australia: agreement in place — years combine for entitlement threshold',
+          'India: limited agreement as of 2024 — check current status on DRV website',
+          'China, Nigeria, Philippines: no agreement — refund option applies after 24 months',
+        ],
+      },
+    ],
+    relatedTaskId: 'tax-id',
+    relatedGuides: ['tax-return-germany', 'bank-account-germany'],
+  },
+
+  'internet-germany': {
+    title: 'Getting Home Internet in Germany (2025): DSL, Cable, and Fibre Guide',
+    metaTitle: 'Home Internet in Germany 2025 — Best Providers, DSL vs Cable vs Fibre',
+    metaDescription: 'How to get home internet in Germany. DSL vs cable vs fibre comparison, top providers (Telekom, Vodafone, o2, 1&1), contract tips, and what to do without fibre.',
+    category: 'Social',
+    readingTime: '5 min',
+    lastUpdated: 'January 2025',
+    intro: "Getting home internet set up in Germany takes 1–4 weeks from ordering to activation. Germany's infrastructure varies significantly — city centres often have cable (250–1000 Mbit/s) or fibre, while some buildings in older districts are still DSL-only. Always check what your specific address supports before choosing a provider.",
+    sections: [
+      {
+        heading: 'Types of Connection',
+        body: 'The type of connection available at your address determines your maximum speed.',
+        list: [
+          'DSL (via telephone line): widely available, 16–250 Mbit/s — cheapest but slowest',
+          'Cable (Koaxialkabel): available in most cities via Vodafone; 100–1000 Mbit/s down, often asymmetric upload',
+          'FTTH Fibre (Glasfaser): fastest and most future-proof, 500 Mbit/s–2 Gbit/s symmetric — expanding rapidly',
+          'LTE/5G Home: good alternative in rural areas or temporary housing, no line installation needed',
+        ],
+      },
+      {
+        heading: 'Top Providers',
+        body: 'Use Check24 or Verivox to compare current prices and availability at your exact address before ordering.',
+        list: [
+          'Deutsche Telekom (Magenta): widest DSL + fibre coverage; fastest network, slightly pricier (~€30–60/month)',
+          'Vodafone: dominant cable provider in major cities; 250/500/1000 Mbit/s (~€25–50/month)',
+          'o2 (Telefónica): DSL on Telekom infrastructure; competitive prices, good for existing o2 mobile customers',
+          '1&1: budget DSL/fibre, often cheapest introductory prices (~€20–40/month)',
+        ],
+      },
+      {
+        heading: 'Ordering and Activation',
+        body: 'The process from order to active internet typically takes 2–4 weeks.',
+        list: [
+          'Check address availability on provider websites or Check24',
+          'Order online — you need your IBAN for monthly direct debit',
+          'A technician visit is needed for new DSL lines; cable and existing connections sometimes activate remotely',
+          'Contracts are typically 24 months minimum — check for early termination clauses',
+          'Router is usually shipped by the provider (included or small monthly rental fee)',
+        ],
+        tip: 'If you need internet urgently, use your mobile data hotspot or buy a prepaid LTE router from MediaMarkt/Saturn (~€40) while waiting for your fixed-line connection to activate.',
+      },
+      {
+        heading: 'Tenant Considerations',
+        body: 'Check with your landlord before ordering — some buildings have existing contracts or infrastructure constraints.',
+        list: [
+          'Many WG and student dorms include internet in the Nebenkosten (utilities) — check your lease before ordering separately',
+          'Ask your landlord if the building is connected to a cable or fibre provider — saves time checking availability',
+          'Older Altbau buildings may only support DSL — but this can still be perfectly adequate for most uses',
+        ],
+      },
+    ],
+    providers: [
+      { name: 'Check24 Internet', url: 'https://www.check24.de/internet/', note: 'Best comparison site — enter your address for live availability and prices' },
+      { name: 'Telekom MagentaZuhause', url: 'https://www.telekom.de/zuhause/tarife-und-optionen/internet', note: 'Widest coverage, fastest support — slightly premium priced' },
+      { name: 'Vodafone Cable', url: 'https://www.vodafone.de/zuhause/kabel-internet/', note: 'Best value for cable internet in major cities' },
+    ],
+    relatedTaskId: 'anmeldung',
+    relatedGuides: ['bank-account-germany'],
+  },
 }
 
 export async function generateStaticParams() {
